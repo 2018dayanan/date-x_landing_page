@@ -1,6 +1,7 @@
 import textLogo from '../assets/logo_white.png';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaTwitter, FaInstagram, FaFacebookF, FaLinkedinIn } from 'react-icons/fa6';
 import './Footer.css';
 
 const Footer: React.FC = () => {
@@ -73,10 +74,10 @@ const Footer: React.FC = () => {
             {/* Glass Social Icons */}
             <div className="social-icons">
               {[
-                { icon: '🐦', color: '#1DA1F2' },
-                { icon: '📸', color: '#E4405F' },
-                { icon: '📘', color: '#1877F2' },
-                { icon: '💼', color: '#0A66C2' },
+                { icon: <FaTwitter size={18} />, color: '#1DA1F2' },
+                { icon: <FaInstagram size={18} />, color: '#E4405F' },
+                { icon: <FaFacebookF size={18} />, color: '#1877F2' },
+                { icon: <FaLinkedinIn size={18} />, color: '#0A66C2' },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -120,15 +121,18 @@ const Footer: React.FC = () => {
                 }}
               >
                 {title}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '-8px',
-                  left: 0,
-                  width: '30px',
-                  height: '3px',
-                  background: 'linear-gradient(90deg, #f48c25, #FF007F)',
-                  borderRadius: '10px',
-                }} />
+                <div
+                  className="footer-heading-indicator"
+                  style={{
+                    position: 'absolute',
+                    bottom: '-8px',
+                    left: '0',
+                    width: '30px',
+                    height: '3px',
+                    background: 'linear-gradient(90deg, #f48c25, #FF007F)',
+                    borderRadius: '10px',
+                  }}
+                />
               </h4>
               <ul className="footer-links-list">
                 {links.map((link) => (
@@ -223,9 +227,8 @@ const Footer: React.FC = () => {
             borderRadius: '20px',
             border: '1px solid rgba(255, 255, 255, 0.06)',
           }}>
-            <span style={{ fontSize: '16px' }}>💜</span>
             <p style={{ color: 'rgba(255, 255, 255, 0.5)', fontSize: '14px', fontWeight: 500 }}>
-              © 2026 Date-x. All rights reserved. Made with 💜 Eonpulsetech.
+              © 2026 Date-x. All rights reserved. Made with <a href="https://eonpulsetech.com" target="_blank" rel="noopener noreferrer" style={{ color: '#f48c25', textDecoration: 'none', fontWeight: 700, transition: 'all 0.3s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#FF007F'} onMouseLeave={(e) => e.currentTarget.style.color = '#f48c25'}>Eonpulsetech</a>.
             </p>
           </div>
 

@@ -1,6 +1,8 @@
 # Date-x Landing Page
 **Date-x** is a modern, high-performance landing page for the #1 Dating & Live Video application. It's designed to showcase the app's features, build trust through testimonials, and drive downloads across multiple platforms.
 
+**Live Demo:** [https://datexstreaming.com](https://datexstreaming.com)
+
 ## Features
 
 - **Hero Section**: Catchy headlines with a modern phone mockup and floating engagement elements.

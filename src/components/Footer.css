@@ -127,3 +127,18 @@
     grid-column: span 1;
   }
 }
+
+@media (max-width: 768px) {
+  .footer-heading-indicator {
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+
+  .social-icons {
+    justify-content: center !important;
+  }
+
+  .footer-logo-container {
+    justify-content: center !important;
+  }
+}

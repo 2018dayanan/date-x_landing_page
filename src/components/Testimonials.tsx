@@ -31,50 +31,21 @@ const reviews = [
 const Testimonials: React.FC = () => {
   return (
     <section id="testimonials" className="testimonials-section">
-      {/* Colorful Glass Orbs */}
-      <div style={{
-        position: 'absolute',
-        top: '10%',
-        left: '-10%',
-        width: '500px',
-        height: '500px',
-        background: 'linear-gradient(135deg, rgba(244, 140, 37, 0.1), rgba(112, 0, 255, 0.1))',
-        backdropFilter: 'blur(40px)',
-        borderRadius: '50%',
-        filter: 'blur(80px)',
-        animation: 'pulse-glow 15s infinite alternate',
-        zIndex: 0,
-      }} />
-      <div style={{
-        position: 'absolute',
-        bottom: '5%',
-        right: '-10%',
-        width: '450px',
-        height: '450px',
-        background: 'linear-gradient(135deg, rgba(255, 0, 127, 0.1), rgba(0, 200, 83, 0.1))',
-        backdropFilter: 'blur(40px)',
-        borderRadius: '50%',
-        filter: 'blur(80px)',
-        animation: 'pulse-glow 12s infinite alternate-reverse',
-        zIndex: 0,
-      }} />
-
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '80px' }} className="reveal">
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 900, color: '#FFFFFF', marginBottom: '20px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '60px' }} className="reveal">
+          <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 900, color: '#FFFFFF', marginBottom: '16px' }}>
             Trusted by <span className="text-gradient">Millions</span>
           </h2>
-          <p style={{ fontSize: '18px', color: 'rgba(255, 255, 255, 0.7)', maxWidth: '600px', margin: '0 auto' }}>
+          <p style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.7)', maxWidth: '500px', margin: '0 auto' }}>
             Don't just take our word for it. Hear what our community has to say.
           </p>
         </div>
 
-        {/* Glass Container */}
+        {/* Simplified Container */}
         <div style={{
           background: 'rgba(255, 255, 255, 0.02)',
-          backdropFilter: 'blur(20px)',
-          borderRadius: '48px',
-          padding: '60px 40px',
+          borderRadius: '32px',
+          padding: '40px 20px',
           border: '1px solid rgba(255, 255, 255, 0.06)',
         }}>
           <div className="testimonials-grid">
@@ -84,100 +55,62 @@ const Testimonials: React.FC = () => {
                 className="glass testimonial-card reveal"
                 style={{
                   animationDelay: `${index * 0.1}s`,
-                  border: '1px solid rgba(255, 255, 255, 0.06)',
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget;
-                  el.style.transform = 'translateY(-12px)';
-                  el.style.background = 'rgba(255, 255, 255, 0.08)';
-                  el.style.borderColor = `${review.accent}44`;
-                  el.style.boxShadow = `0 40px 100px ${review.accent}20`;
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget;
-                  el.style.transform = 'translateY(0)';
-                  el.style.background = 'rgba(255, 255, 255, 0.03)';
-                  el.style.borderColor = 'rgba(255, 255, 255, 0.06)';
-                  el.style.boxShadow = 'none';
+                  willChange: 'transform',
                 }}
               >
-                {/* Colored Quote Mark */}
                 <div style={{
-                  fontSize: '48px',
+                  fontSize: '36px',
                   background: review.gradient,
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   opacity: 0.3,
                   lineHeight: 1,
-                  marginBottom: '16px',
+                  marginBottom: '12px',
                   fontWeight: 900,
                 }}>"</div>
 
                 <p className="testimonial-text">{review.text}</p>
 
-                {/* Glass Divider */}
                 <div style={{
                   height: '1px',
                   background: `linear-gradient(90deg, transparent, ${review.accent}40, transparent)`,
-                  marginBottom: '24px',
+                  marginBottom: '20px',
                 }} />
 
-                {/* User Info with Glass Avatar */}
                 <div className="testimonial-user">
                   <div style={{
-                    width: '56px',
-                    height: '56px',
+                    width: '48px',
+                    height: '48px',
                     background: review.gradient,
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '24px',
+                    fontSize: '20px',
                     border: '2px solid rgba(255,255,255,0.2)',
-                    boxShadow: `0 10px 30px ${review.accent}40`,
                   }}>
                     {review.avatar}
                   </div>
                   <div>
-                    <div style={{
-                      fontSize: '18px',
-                      fontWeight: 800,
-                      color: '#FFFFFF',
-                    }}>
+                    <div style={{ fontSize: '16px', fontWeight: 800, color: '#FFFFFF' }}>
                       {review.name}
                     </div>
-                    <div style={{
-                      fontSize: '14px',
-                      color: review.accent,
-                      fontWeight: 600,
-                    }}>
+                    <div style={{ fontSize: '13px', color: review.accent, fontWeight: 600 }}>
                       {review.role}
                     </div>
                   </div>
                 </div>
-
-                {/* Bottom Accent */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: '30%',
-                  right: '30%',
-                  height: '3px',
-                  background: review.gradient,
-                  borderRadius: '10px 10px 0 0',
-                  filter: 'blur(1px)',
-                }} />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Stats with Glass Cards */}
+        {/* Stats */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
-          gap: '30px',
-          marginTop: '60px',
+          gap: '20px',
+          marginTop: '40px',
           flexWrap: 'wrap',
         }} className="reveal">
           {[
@@ -188,36 +121,24 @@ const Testimonials: React.FC = () => {
             <div
               key={i}
               style={{
-                padding: '24px 40px',
+                padding: '16px 28px',
                 background: 'rgba(255, 255, 255, 0.03)',
-                backdropFilter: 'blur(20px)',
-                borderRadius: '24px',
+                borderRadius: '20px',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
                 textAlign: 'center',
-                transition: 'all 0.3s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-5px)';
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
               }}
             >
               <div style={{
-                fontSize: '32px',
+                fontSize: '24px',
                 fontWeight: 900,
                 background: stat.gradient,
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                marginBottom: '8px',
+                marginBottom: '4px',
               }}>
                 {stat.value}
               </div>
-              <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)' }}>
+              <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)' }}>
                 {stat.label}
               </div>
             </div>
