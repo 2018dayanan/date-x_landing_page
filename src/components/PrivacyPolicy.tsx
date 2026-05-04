@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import colors from '../styles/colors';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import BackgroundOrbs from './BackgroundOrbs';
 
 const PrivacyPolicy: React.FC = () => {
   useEffect(() => {
@@ -10,7 +11,8 @@ const PrivacyPolicy: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ background: colors.deepBlue, minHeight: '100vh' }}>
+    <div style={{ position: 'relative', minHeight: '100vh' }}>
+      <BackgroundOrbs />
       <Navbar />
       
       <div 

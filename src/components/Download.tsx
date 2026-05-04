@@ -7,10 +7,9 @@ const Download: React.FC = () => {
     <section
       id="download"
       style={{
-        padding: '140px 0',
-        background: colors.deepBlue,
+        padding: '120px 0',
+        background: 'transparent',
         position: 'relative',
-        overflow: 'hidden',
       }}
     >
       <div className="container">

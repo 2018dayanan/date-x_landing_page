@@ -7,10 +7,12 @@ import Testimonials from './components/Testimonials';
 import Download from './components/Download';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import BackgroundOrbs from './components/BackgroundOrbs';
 import './index.css';
 
 const Home = () => (
   <div className="app">
+    <BackgroundOrbs />
     <Navbar />
     <Hero />
     <Features />

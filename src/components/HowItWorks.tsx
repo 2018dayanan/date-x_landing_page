@@ -42,8 +42,8 @@ const HowItWorks: React.FC = () => {
     <section
       id="how-it-works"
       style={{
-        padding: '140px 0',
-        background: `linear-gradient(180deg, ${colors.deepBlue} 0%, #0a1426 100%)`,
+        padding: '120px 0',
+        background: 'transparent',
         position: 'relative',
         overflow: 'hidden',
       }}

@@ -51,8 +51,8 @@ const Features: React.FC = () => {
     <section
       id="features"
       style={{
-        padding: '140px 0',
-        background: colors.deepBlue,
+        padding: '120px 0',
+        background: 'transparent',
         position: 'relative',
         overflow: 'hidden',
       }}

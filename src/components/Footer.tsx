@@ -6,34 +6,24 @@ const Footer: React.FC = () => {
   const footerLinks = {
     Product: [
       { name: 'Features', href: '/#features' },
-      { name: 'Pricing', href: '#' },
       { name: 'Download', href: '/#download' },
       { name: 'Reviews', href: '/#testimonials' },
     ],
     Company: [
       { name: 'About Us', href: '#' },
-      { name: 'Careers', href: '#' },
-      { name: 'Press', href: '#' },
       { name: 'Contact', href: '#' },
     ],
     Resources: [
       { name: 'Help Center', href: '#' },
       { name: 'Blog', href: '#' },
       { name: 'Community', href: '#' },
-      { name: 'API Docs', href: '#' },
-    ],
-    Legal: [
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms', href: '#' },
-      { name: 'Cookies', href: '#' },
-      { name: 'GDPR', href: '#' },
     ],
   };
 
   return (
     <footer
       style={{
-        background: colors.deepBlue,
+        background: 'transparent',
         padding: '100px 0 60px',
         borderTop: '1px solid rgba(255, 255, 255, 0.05)',
       }}

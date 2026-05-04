@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
       id="home"
       style={{
         minHeight: '100vh',
-        background: colors.darkGradient,
+        background: 'transparent',
         position: 'relative',
         overflow: 'hidden',
         display: 'flex',
