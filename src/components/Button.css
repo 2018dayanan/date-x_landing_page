@@ -1,0 +1,87 @@
+.premium-button {
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.premium-button:active {
+  transform: scale(0.96) !important;
+}
+
+/* Primary Button */
+.btn-primary {
+  background: linear-gradient(135deg, #f48c25, #FF007F, #7000FF, #f48c25);
+  background-size: 300% 300%;
+  color: #FFFFFF;
+  box-shadow: 0 8px 30px rgba(244, 140, 37, 0.3);
+  animation: gradientShift 4s ease infinite;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(244, 140, 37, 0.4);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: linear-gradient(135deg, #7000FF, #FF007F, #f48c25, #7000FF);
+  background-size: 300% 300%;
+  color: #FFFFFF;
+  box-shadow: 0 8px 30px rgba(112, 0, 255, 0.3);
+  animation: gradientShift 4s ease infinite;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(112, 0, 255, 0.4);
+}
+
+/* Glass Button */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Outline Button */
+.btn-outline {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline:hover {
+  border-color: #f48c25;
+  background: rgba(244, 140, 37, 0.05);
+  transform: translateY(-4px);
+}
+
+/* Sizes */
+.btn-sm { padding: 10px 24px; font-size: 14px; }
+.btn-md { padding: 14px 32px; font-size: 16px; }
+.btn-lg { padding: 18px 48px; font-size: 18px; }
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
