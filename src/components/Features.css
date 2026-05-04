@@ -14,14 +14,25 @@
 }
 
 .feature-card {
-  padding: 40px 32px;
-  border-radius: 32px;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
+  padding: 48px 32px;
+  border-radius: 40px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.feature-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent);
+  pointer-events: none;
+}
+
+.feature-card:hover {
+  border-color: rgba(244, 140, 37, 0.4);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 20px rgba(244, 140, 37, 0.1);
 }
 
 .feature-icon-wrapper {

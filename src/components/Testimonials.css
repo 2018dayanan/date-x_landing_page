@@ -12,17 +12,16 @@
 }
 
 .testimonial-card {
-  padding: 40px;
-  border-radius: 32px;
+  padding: 48px;
+  border-radius: 40px;
   position: relative;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
 }
 
 .testimonial-card:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-12px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
 }
 
 .testimonial-quote {
