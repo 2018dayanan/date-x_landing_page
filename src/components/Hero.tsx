@@ -137,4 +137,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-port default Hero;

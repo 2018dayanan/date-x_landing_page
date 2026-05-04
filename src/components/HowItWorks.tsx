@@ -1,70 +1,35 @@
 import React from 'react';
-import colors from '../styles/colors';
-import Button from './Button';
+import './HowItWorks.css';
 
 const steps = [
   {
-    number: '01',
+    title: 'Download App',
+    description: 'Get Date-x on your iOS or Android device for free.',
     icon: '📥',
-    title: 'Download the App',
-    description: 'Get Date-x on your iOS, Android, or desktop device for free.',
-    color: colors.primary,
-    gradient: 'linear-gradient(135deg, #f48c25 0%, #FF007F 100%)',
+    color: '#f48c25'
   },
   {
-    number: '02',
+    title: 'Create Profile',
+    description: 'Sign up in seconds and set up your profile with photos.',
     icon: '👤',
-    title: 'Create Your Profile',
-    description: 'Sign up in seconds and set up your profile with photos and interests.',
-    color: colors.accent,
-    gradient: 'linear-gradient(135deg, #7000FF 0%, #FF007F 100%)',
+    color: '#7000FF'
   },
   {
-    number: '03',
+    title: 'Find Matches',
+    description: 'Our smart algorithm helps you find compatible connections.',
     icon: '🔍',
-    title: 'Discover People',
-    description: 'Browse through thousands of active users and find your perfect match.',
-    color: colors.secondary,
-    gradient: colors.primaryGradient,
+    color: '#FF007F'
   },
   {
-    number: '04',
-    icon: '📹',
     title: 'Start Connecting',
-    description: 'Make video calls, chat, send gifts, and enjoy seamless communication.',
-    color: colors.primary,
-    gradient: colors.accentGradient,
-  },
+    description: 'Jump into high-quality video calls and start building connections.',
+    icon: '🎥',
+    color: '#f48c25'
+  }
 ];
 
 const HowItWorks: React.FC = () => {
   return (
-    <section
-      id="how-it-works"
-      style={{
-        padding: '120px 0',
-        background: 'transparent',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Background decorations */}
-      <div style={{
-        position: 'absolute',
-        top: '5%',
-        right: '-8%',
-        width: '500px',
-        height: '500px',
-        background: `radial-gradient(circle, ${colors.primary}15 0%, transparent 70%)`,
-        borderRadius: '50%',
-        filter: 'blur(60px)',
-      }} />
-      <div style={{
-        position: 'absolute',
-        bottom: '10%',
-        left: '-8%',
-        width: '400px',
-        height: '400px',
     <section id="how-it-works" className="how-it-works-section">
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '80px' }} className="reveal">
@@ -73,7 +38,7 @@ const HowItWorks: React.FC = () => {
             How It <span className="text-gradient">Works</span>
           </h2>
           <p style={{ fontSize: '18px', color: 'rgba(255, 255, 255, 0.7)', maxWidth: '600px', margin: '0 auto' }}>
-            Getting started with Date-x is easy. Follow these three simple steps.
+            Getting started with Date-x is easy. Follow these simple steps.
           </p>
         </div>
 
@@ -103,21 +68,6 @@ const HowItWorks: React.FC = () => {
               <p className="step-description">{step.description}</p>
             </div>
           ))}
-        </div>
-          padding: '60px 40px',
-          textAlign: 'center',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          backdropFilter: 'blur(10px)',
-        }}>
-          <h3 style={{ fontSize: '32px', fontWeight: 800, color: colors.white, marginBottom: '16px' }}>
-            Ready to Get Started?
-          </h3>
-          <p style={{ fontSize: '18px', color: colors.textSecondary, marginBottom: '32px' }}>
-            Join millions of users already connecting on Date-x
-          </p>
-          <Button variant="primary" size="lg">
-            🚀 Start Your Journey
-          </Button>
         </div>
       </div>
     </section>

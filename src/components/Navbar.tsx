@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import Button from './Button';
+import colors from '../styles/colors';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,16 +27,27 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="navbar-wrapper" style={{ padding: scrolled ? '12px 0' : '20px 0' }}>
-      <div 
+      <div
         className="container navbar-container"
         style={{
+          background: scrolled
+            ? `linear-gradient(135deg, rgba(244, 140, 37, 0.25) 0%, rgba(255, 0, 127, 0.2) 50%, rgba(112, 0, 255, 0.25) 100%)`
+            : `linear-gradient(135deg, rgba(244, 140, 37, 0.15) 0%, rgba(255, 0, 127, 0.12) 50%, rgba(112, 0, 255, 0.15) 100%)`,
           padding: scrolled ? '10px 32px' : '14px 40px',
           maxWidth: scrolled ? '1000px' : '1200px',
         }}
       >
+        {/* Colorful gradient overlay strip at top of navbar */}
+        <div className="navbar-top-strip" />
+
         {/* Logo */}
         <Link to="/" className="logo-container">
-          <img src={mainLogo} alt="Date-x Logo" className="logo-main" />
+          <img
+            src={mainLogo}
+            alt="Date-x Logo"
+            className="logo-main"
+            style={{ filter: `drop-shadow(0 8px 20px ${colors.primary}66)` }}
+          />
           <img src={textLogo} alt="Date-x" className="logo-text" />
         </Link>
 

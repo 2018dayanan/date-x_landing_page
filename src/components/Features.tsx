@@ -1,13 +1,13 @@
 import React from 'react';
-import colors from '../styles/colors';
+import './Features.css';
 
 const features = [
   {
     icon: '📹',
     title: 'HD Video Calls',
     description: 'Experience crystal clear high-definition video calls with optimized low-latency connection.',
-    gradient: colors.primaryGradient,
-    accent: colors.primary,
+    gradient: 'linear-gradient(135deg, #f48c25 0%, #FF007F 100%)',
+    accent: '#f48c25',
   },
   {
     icon: '💬',
@@ -20,8 +20,8 @@ const features = [
     icon: '🎁',
     title: 'Virtual Gifts',
     description: 'Express yourself with interactive 3D gifts and earn rewards as you connect.',
-    gradient: colors.accentGradient,
-    accent: colors.secondary,
+    gradient: 'linear-gradient(135deg, #7000FF 0%, #FF007F 100%)',
+    accent: '#FF007F',
   },
   {
     icon: '🔒',
@@ -48,18 +48,6 @@ const features = [
 
 const Features: React.FC = () => {
   return (
-    <section
-      id="features"
-      style={{
-        padding: '120px 0',
-        background: 'transparent',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Decorative Orbs */}
-      <div style={{
-        position: 'absolute',
     <section id="features" className="features-section">
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '80px' }} className="reveal">
@@ -82,6 +70,7 @@ const Features: React.FC = () => {
                 el.style.transform = 'translateY(-12px)';
                 el.style.borderColor = `${feature.accent}44`;
                 el.style.background = 'rgba(255, 255, 255, 0.05)';
+                el.style.boxShadow = `0 30px 60px ${feature.accent}15`;
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget;

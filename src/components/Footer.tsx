@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
         {/* Bottom Section */}
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © 2024 Date-x. All rights reserved. Made with 💜 Eonpulsetech.
+            © 2026 Date-x. All rights reserved. Made with 💜 Eonpulsetech.
           </p>
           <div className="footer-bottom-links">
             <Link to="/privacy" className="footer-bottom-link">Privacy</Link>
@@ -88,4 +88,3 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
- default Footer;
