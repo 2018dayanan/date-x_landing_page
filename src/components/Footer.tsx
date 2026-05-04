@@ -1,12 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import colors from '../styles/colors';
 
 const Footer: React.FC = () => {
   const footerLinks = {
-    Product: ['Features', 'Pricing', 'Download', 'Reviews'],
-    Company: ['About Us', 'Careers', 'Press', 'Contact'],
-    Resources: ['Help Center', 'Blog', 'Community', 'API Docs'],
-    Legal: ['Privacy', 'Terms', 'Cookies', 'GDPR'],
+    Product: [
+      { name: 'Features', href: '/#features' },
+      { name: 'Pricing', href: '#' },
+      { name: 'Download', href: '/#download' },
+      { name: 'Reviews', href: '/#testimonials' },
+    ],
+    Company: [
+      { name: 'About Us', href: '#' },
+      { name: 'Careers', href: '#' },
+      { name: 'Press', href: '#' },
+      { name: 'Contact', href: '#' },
+    ],
+    Resources: [
+      { name: 'Help Center', href: '#' },
+      { name: 'Blog', href: '#' },
+      { name: 'Community', href: '#' },
+      { name: 'API Docs', href: '#' },
+    ],
+    Legal: [
+      { name: 'Privacy Policy', href: '/privacy' },
+      { name: 'Terms', href: '#' },
+      { name: 'Cookies', href: '#' },
+      { name: 'GDPR', href: '#' },
+    ],
   };
 
   return (
@@ -22,32 +43,34 @@ const Footer: React.FC = () => {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '60px', marginBottom: '80px' }}>
           {/* Brand */}
           <div style={{ gridColumn: 'span 2' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-              <div
-                style={{
-                  width: '42px',
-                  height: '42px',
-                  background: colors.primaryGradient,
-                  borderRadius: '14px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '22px',
-                }}
-              >
-                💜
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+                <div
+                  style={{
+                    width: '42px',
+                    height: '42px',
+                    background: colors.primaryGradient,
+                    borderRadius: '14px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '22px',
+                  }}
+                >
+                  💜
+                </div>
+                <span
+                  style={{
+                    fontSize: '28px',
+                    fontWeight: 900,
+                    color: colors.white,
+                    letterSpacing: '-1px',
+                  }}
+                >
+                  Date-x
+                </span>
               </div>
-              <span
-                style={{
-                  fontSize: '28px',
-                  fontWeight: 900,
-                  color: colors.white,
-                  letterSpacing: '-1px',
-                }}
-              >
-                Date-x
-              </span>
-            </div>
+            </Link>
             <p
               style={{
                 fontSize: '16px',
@@ -109,26 +132,50 @@ const Footer: React.FC = () => {
               </h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 {links.map((link) => (
-                  <li key={link} style={{ marginBottom: '16px' }}>
-                    <a
-                      href="#"
-                      style={{
-                        color: colors.textSecondary,
-                        fontSize: '15px',
-                        fontWeight: 500,
-                        transition: 'all 0.3s',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.color = colors.primary;
-                        e.currentTarget.style.paddingLeft = '5px';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.color = colors.textSecondary;
-                        e.currentTarget.style.paddingLeft = '0';
-                      }}
-                    >
-                      {link}
-                    </a>
+                  <li key={link.name} style={{ marginBottom: '16px' }}>
+                    {link.href.startsWith('/') ? (
+                      <Link
+                        to={link.href}
+                        style={{
+                          color: colors.textSecondary,
+                          fontSize: '15px',
+                          fontWeight: 500,
+                          transition: 'all 0.3s',
+                          textDecoration: 'none',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.color = colors.primary;
+                          e.currentTarget.style.paddingLeft = '5px';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.color = colors.textSecondary;
+                          e.currentTarget.style.paddingLeft = '0';
+                        }}
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        style={{
+                          color: colors.textSecondary,
+                          fontSize: '15px',
+                          fontWeight: 500,
+                          transition: 'all 0.3s',
+                          textDecoration: 'none',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.color = colors.primary;
+                          e.currentTarget.style.paddingLeft = '5px';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.color = colors.textSecondary;
+                          e.currentTarget.style.paddingLeft = '0';
+                        }}
+                      >
+                        {link.name}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -150,9 +197,9 @@ const Footer: React.FC = () => {
             © 2024 Date-x. All rights reserved. Made with 💜 worldwide.
           </p>
           <div style={{ display: 'flex', gap: '32px' }}>
-            <a href="#" style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500 }}>Privacy</a>
-            <a href="#" style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500 }}>Terms</a>
-            <a href="#" style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500 }}>Cookies</a>
+            <Link to="/privacy" style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500, textDecoration: 'none' }}>Privacy</Link>
+            <a href="#" style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500, textDecoration: 'none' }}>Terms</a>
+            <a href="#" style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500, textDecoration: 'none' }}>Cookies</a>
           </div>
         </div>
       </div>

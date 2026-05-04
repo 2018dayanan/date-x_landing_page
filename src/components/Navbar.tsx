@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import colors from '../styles/colors';
 import Button from './Button';
@@ -15,10 +16,10 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Features', href: '#features' },
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'Download', href: '#download' },
+    { name: 'Home', href: '/#home' },
+    { name: 'Features', href: '/#features' },
+    { name: 'How It Works', href: '/#how-it-works' },
+    { name: 'Download', href: '/#download' },
   ];
 
   return (
@@ -33,7 +34,7 @@ const Navbar: React.FC = () => {
         transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
       }}
     >
-      <div 
+      <div
         className="container"
         style={{
           display: 'flex',
@@ -51,33 +52,35 @@ const Navbar: React.FC = () => {
         }}
       >
         {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}>
-          <div
-            style={{
-              width: '42px',
-              height: '42px',
-              background: colors.primaryGradient,
-              borderRadius: '14px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '22px',
-              boxShadow: `0 8px 20px ${colors.primary}44`,
-            }}
-          >
-            💜
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}>
+            <div
+              style={{
+                width: '42px',
+                height: '42px',
+                background: colors.primaryGradient,
+                borderRadius: '14px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '22px',
+                boxShadow: `0 8px 20px ${colors.primary}44`,
+              }}
+            >
+              💜
+            </div>
+            <span
+              style={{
+                fontSize: '26px',
+                fontWeight: 800,
+                color: colors.white,
+                letterSpacing: '-0.5px',
+              }}
+            >
+              Date-x
+            </span>
           </div>
-          <span
-            style={{
-              fontSize: '26px',
-              fontWeight: 800,
-              color: colors.white,
-              letterSpacing: '-0.5px',
-            }}
-          >
-            Date-x
-          </span>
-        </div>
+        </Link>
 
         {/* Desktop Nav Links */}
         <div
@@ -114,15 +117,7 @@ const Navbar: React.FC = () => {
           ))}
         </div>
 
-        {/* CTA Buttons */}
-        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }} className="desktop-nav">
-          <Button variant="glass" size="sm">
-            Login
-          </Button>
-          <Button variant="primary" size="sm">
-            Get Started
-          </Button>
-        </div>
+
 
         {/* Mobile Menu Toggle */}
         <button
