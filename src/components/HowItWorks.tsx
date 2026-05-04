@@ -65,125 +65,45 @@ const HowItWorks: React.FC = () => {
         left: '-8%',
         width: '400px',
         height: '400px',
-        background: `radial-gradient(circle, ${colors.secondary}15 0%, transparent 70%)`,
-        borderRadius: '50%',
-        filter: 'blur(50px)',
-      }} />
-
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 80px' }}>
-          <div
-            style={{
-              display: 'inline-block',
-              padding: '8px 20px',
-              background: 'rgba(112, 0, 255, 0.1)',
-              borderRadius: '50px',
-              color: colors.accent,
-              fontWeight: 700,
-              fontSize: '14px',
-              marginBottom: '24px',
-              textTransform: 'uppercase',
-              letterSpacing: '2px',
-              border: '1px solid rgba(112, 0, 255, 0.2)',
-            }}
-          >
-            Simple Process
-          </div>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 900, marginBottom: '20px' }}>
+    <section id="how-it-works" className="how-it-works-section">
+      <div className="container">
+        <div style={{ textAlign: 'center', marginBottom: '80px' }} className="reveal">
+          <div className="step-badge">Simple Process</div>
+          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 900, color: '#FFFFFF', marginBottom: '20px' }}>
             How It <span className="text-gradient">Works</span>
           </h2>
-          <p style={{ fontSize: '18px', color: colors.textSecondary }}>
-            Getting started with Date-x is simple. Follow these four steps to begin
-            your global connection journey.
+          <p style={{ fontSize: '18px', color: 'rgba(255, 255, 255, 0.7)', maxWidth: '600px', margin: '0 auto' }}>
+            Getting started with Date-x is easy. Follow these three simple steps.
           </p>
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '40px',
-          position: 'relative'
-        }}>
-          {/* Connector Line (Desktop) */}
-          <div style={{
-            position: 'absolute',
-            top: '120px',
-            left: '10%',
-            right: '10%',
-            height: '2px',
-            background: `linear-gradient(90deg, transparent, ${colors.primary}44, ${colors.secondary}44, transparent)`,
-            zIndex: 0,
-          }} className="desktop-nav" />
+        <div className="how-it-works-grid">
+          {/* Connector Line (Desktop Only) */}
+          <div className="connector-line hide-mobile" />
 
           {steps.map((step, index) => (
-            <div
-              key={index}
-              className="reveal"
-              style={{
-                textAlign: 'center',
-                position: 'relative',
-                zIndex: 1,
-                animationDelay: `${index * 0.2}s`,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
-            >
-              <div
-                style={{
-                  width: '90px',
-                  height: '90px',
-                  background: colors.glassGradient,
-                  borderRadius: '28px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '36px',
-                  marginBottom: '28px',
-                  position: 'relative',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+            <div key={index} className="step-card reveal" style={{ animationDelay: `${index * 0.2}s` }}>
+              <div 
+                className="step-icon-wrapper"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-10px) rotate(5deg)';
+                  e.currentTarget.style.borderColor = `${step.color}88`;
+                  e.currentTarget.style.boxShadow = `0 20px 40px ${step.color}33`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) rotate(0deg)';
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.3)';
                 }}
               >
                 {step.icon}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '-10px',
-                    right: '-10px',
-                    width: '40px',
-                    height: '40px',
-                    background: colors.primaryGradient,
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '16px',
-                    fontWeight: 900,
-                    color: colors.white,
-                    border: `4px solid ${colors.deepBlue}`,
-                  }}
-                >
-                  {step.number}
-                </div>
+                <div className="step-number" style={{ backgroundColor: step.color }}>{index + 1}</div>
               </div>
-
-              <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '16px', color: colors.white }}>
-                {step.title}
-              </h3>
-              <p style={{ fontSize: '16px', color: colors.textSecondary, lineHeight: 1.7, maxWidth: '260px', margin: '0 auto' }}>
-                {step.description}
-              </p>
+              <h3 className="step-title">{step.title}</h3>
+              <p className="step-description">{step.description}</p>
             </div>
           ))}
         </div>
-
-        {/* CTA Section */}
-        <div style={{
-          marginTop: '100px',
-          background: 'rgba(255, 255, 255, 0.03)',
-          borderRadius: '40px',
           padding: '60px 40px',
           textAlign: 'center',
           border: '1px solid rgba(255, 255, 255, 0.1)',

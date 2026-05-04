@@ -2,7 +2,7 @@ import mainLogo from '../assets/main_log.png';
 import textLogo from '../assets/text_logo.png';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import colors from '../styles/colors';
+import './Footer.css';
 
 const Footer: React.FC = () => {
   const footerLinks = {
@@ -23,79 +23,25 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer
-      style={{
-        background: 'transparent',
-        padding: '100px 0 60px',
-        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-      }}
-    >
+    <footer className="footer-wrapper">
       <div className="container">
         {/* Top Section */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '60px', marginBottom: '80px' }}>
+        <div className="footer-top">
           {/* Brand */}
-          <div style={{ gridColumn: 'span 2' }}>
-            <Link to="/" style={{ textDecoration: 'none' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
-                <img
-                  src={mainLogo}
-                  alt="Date-x Logo"
-                  style={{
-                    width: '42px',
-                    height: '42px',
-                    objectFit: 'contain'
-                  }}
-                />
-                <img
-                  src={textLogo}
-                  alt="Date-x"
-                  style={{
-                    height: '24px',
-                    objectFit: 'contain'
-                  }}
-                />
+          <div className="footer-brand">
+            <Link to="/" className="footer-logo-link">
+              <div className="footer-logo-container">
+                <img src={mainLogo} alt="Date-x Logo" className="footer-logo-main" />
+                <img src={textLogo} alt="Date-x" className="footer-logo-text" />
               </div>
             </Link>
-            <p
-              style={{
-                fontSize: '16px',
-                color: colors.textSecondary,
-                lineHeight: 1.8,
-                marginBottom: '32px',
-                maxWidth: '340px',
-              }}
-            >
+            <p className="footer-description">
               The world's leading real-time social platform. Connecting millions through HD video and meaningful interactions.
             </p>
             {/* Social Icons */}
-            <div style={{ display: 'flex', gap: '16px' }}>
+            <div className="social-icons">
               {['🐦', '📸', '📘', '💼'].map((icon, i) => (
-                <div
-                  key={i}
-                  style={{
-                    width: '44px',
-                    height: '44px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    borderRadius: '12px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '20px',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = colors.primaryGradient;
-                    e.currentTarget.style.transform = 'translateY(-5px) rotate(8deg)';
-                    e.currentTarget.style.borderColor = 'transparent';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
-                    e.currentTarget.style.transform = 'translateY(0) rotate(0deg)';
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                  }}
-                >
+                <div key={i} className="social-icon">
                   {icon}
                 </div>
               ))}
@@ -105,59 +51,16 @@ const Footer: React.FC = () => {
           {/* Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4
-                style={{
-                  fontSize: '18px',
-                  fontWeight: 800,
-                  color: colors.white,
-                  marginBottom: '28px',
-                }}
-              >
-                {title}
-              </h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              <h4 className="footer-links-title">{title}</h4>
+              <ul className="footer-links-list">
                 {links.map((link) => (
-                  <li key={link.name} style={{ marginBottom: '16px' }}>
+                  <li key={link.name} className="footer-link-item">
                     {link.href.startsWith('/') ? (
-                      <Link
-                        to={link.href}
-                        style={{
-                          color: colors.textSecondary,
-                          fontSize: '15px',
-                          fontWeight: 500,
-                          transition: 'all 0.3s',
-                          textDecoration: 'none',
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.color = colors.primary;
-                          e.currentTarget.style.paddingLeft = '5px';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.color = colors.textSecondary;
-                          e.currentTarget.style.paddingLeft = '0';
-                        }}
-                      >
+                      <Link to={link.href} className="footer-link">
                         {link.name}
                       </Link>
                     ) : (
-                      <a
-                        href={link.href}
-                        style={{
-                          color: colors.textSecondary,
-                          fontSize: '15px',
-                          fontWeight: 500,
-                          transition: 'all 0.3s',
-                          textDecoration: 'none',
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.color = colors.primary;
-                          e.currentTarget.style.paddingLeft = '5px';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.color = colors.textSecondary;
-                          e.currentTarget.style.paddingLeft = '0';
-                        }}
-                      >
+                      <a href={link.href} className="footer-link">
                         {link.name}
                       </a>
                     )}
@@ -169,22 +72,14 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section */}
-        <div style={{
-          paddingTop: '40px',
-          borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '20px',
-        }}>
-          <p style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500 }}>
+        <div className="footer-bottom">
+          <p className="footer-copyright">
             © 2024 Date-x. All rights reserved. Made with 💜 Eonpulsetech.
           </p>
-          <div style={{ display: 'flex', gap: '32px' }}>
-            <Link to="/privacy" style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500, textDecoration: 'none' }}>Privacy</Link>
-            <a href="#" style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500, textDecoration: 'none' }}>Terms</a>
-            <a href="#" style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500, textDecoration: 'none' }}>Cookies</a>
+          <div className="footer-bottom-links">
+            <Link to="/privacy" className="footer-bottom-link">Privacy</Link>
+            <a href="#" className="footer-bottom-link">Terms</a>
+            <a href="#" className="footer-bottom-link">Cookies</a>
           </div>
         </div>
       </div>
@@ -193,3 +88,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+ default Footer;

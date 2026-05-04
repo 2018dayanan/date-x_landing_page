@@ -60,54 +60,28 @@ const Features: React.FC = () => {
       {/* Decorative Orbs */}
       <div style={{
         position: 'absolute',
-        top: '20%',
-        left: '-5%',
-        width: '400px',
-        height: '400px',
-        background: `radial-gradient(circle, ${colors.accent}10 0%, transparent 70%)`,
-        borderRadius: '50%',
-        filter: 'blur(40px)',
-      }} />
-
+    <section id="features" className="features-section">
       <div className="container">
-        <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 80px' }}>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 900, marginBottom: '20px', letterSpacing: '-1px' }}>
-            Unleash the <span className="text-gradient">Experience</span>
+        <div style={{ textAlign: 'center', marginBottom: '80px' }} className="reveal">
+          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 900, marginBottom: '20px', color: '#FFFFFF' }}>
+            Next-Gen <span className="text-gradient">Features</span>
           </h2>
-          <p style={{ fontSize: '18px', color: colors.textSecondary, lineHeight: 1.7 }}>
-            Packed with cutting-edge features designed to make every interaction meaningful, 
-            secure, and incredibly fun.
+          <p style={{ fontSize: '18px', color: 'rgba(255, 255, 255, 0.7)', maxWidth: '600px', margin: '0 auto' }}>
+            We've built everything you need for the perfect social experience.
           </p>
         </div>
 
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-          gap: '30px',
-          position: 'relative',
-          zIndex: 2 
-        }}>
+        <div className="features-grid">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="glass reveal"
-              style={{
-                padding: '40px 32px',
-                borderRadius: '32px',
-                transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
-                cursor: 'pointer',
-                animationDelay: `${index * 0.1}s`,
-                textAlign: 'center',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-              }}
+              className="glass feature-card reveal"
+              style={{ animationDelay: `${index * 0.1}s` }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget;
                 el.style.transform = 'translateY(-12px)';
                 el.style.borderColor = `${feature.accent}44`;
                 el.style.background = 'rgba(255, 255, 255, 0.05)';
-                el.style.boxShadow = `0 30px 60px ${feature.accent}15`;
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget;
@@ -117,41 +91,28 @@ const Features: React.FC = () => {
                 el.style.boxShadow = 'none';
               }}
             >
-              <div style={{
-                width: '70px',
-                height: '70px',
-                background: feature.gradient,
-                borderRadius: '20px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '32px',
-                marginBottom: '28px',
-                boxShadow: `0 12px 24px ${feature.accent}33`,
-              }}>
+              <div 
+                className="feature-icon-wrapper"
+                style={{ 
+                  background: feature.gradient,
+                  boxShadow: `0 12px 24px ${feature.accent}33`,
+                }}
+              >
                 {feature.icon}
               </div>
 
-              <h3 style={{ fontSize: '22px', fontWeight: 800, marginBottom: '16px', color: colors.white }}>
+              <h3 className="feature-title">
                 {feature.title}
               </h3>
 
-              <p style={{ fontSize: '15px', color: colors.textSecondary, lineHeight: 1.8 }}>
+              <p className="feature-description">
                 {feature.description}
               </p>
 
-              <div style={{ 
-                marginTop: 'auto', 
-                paddingTop: '28px',
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '8px', 
-                color: feature.accent, 
-                fontWeight: 700,
-                fontSize: '13px',
-                textTransform: 'uppercase',
-                letterSpacing: '1px'
-              }}>
+              <div 
+                className="feature-learn-more"
+                style={{ color: feature.accent }}
+              >
                 <span>Learn more</span>
                 <span style={{ fontSize: '16px', transition: 'transform 0.3s' }}>→</span>
               </div>

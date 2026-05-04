@@ -1,107 +1,50 @@
 import React from 'react';
-import colors from '../styles/colors';
-
-const testimonials = [
-  {
-    name: 'Sarah Mitchell',
-    role: 'Fashion Blogger',
-    avatar: '👩‍💼',
-    text: "Date-x has completely redefined how I connect with my audience. The live video quality is unmatched, and the gift system makes it so interactive!",
-    color: colors.primary,
-  },
-  {
-    name: 'David Chen',
-    role: 'Digital Nomad',
-    avatar: '👨‍💻',
-    text: "As someone who travels constantly, Date-x is my go-to for meeting locals and finding friends. The AI matching is surprisingly accurate.",
-    color: colors.accent,
-  },
-  {
-    name: 'Elena Rodriguez',
-    role: 'Artist',
-    avatar: '👩‍🎨',
-    text: "I love the creative vibe of the community. It's not just a dating app; it's a place to share talents and earn rewards while doing what I love.",
-    color: colors.secondary,
-  },
-];
+import './Testimonials.css';
 
 const Testimonials: React.FC = () => {
+  const reviews = [
+    {
+      text: "Date-x completely changed how I connect with people. The video quality is incredible and the community is so welcoming!",
+      name: "Alex Johnson",
+      role: "Verified User",
+      avatar: "👤"
+    },
+    {
+      text: "I love the reward system! It's fun to interact and get something back. The UI is also super smooth and beautiful.",
+      name: "Sarah Miller",
+      role: "Premium Member",
+      avatar: "👸"
+    },
+    {
+      text: "Best social app I've used in years. No lag, real people, and amazing features. Highly recommend it to everyone!",
+      name: "David Chen",
+      role: "Active Explorer",
+      avatar: "🤵"
+    }
+  ];
+
   return (
-    <section
-      id="testimonials"
-      style={{
-        padding: '120px 0',
-        background: 'transparent',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
+    <section id="testimonials" className="testimonials-section">
       <div className="container">
-        <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 80px' }}>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 900, marginBottom: '20px' }}>
-            Loved by <span className="text-gradient">Millions</span>
+        <div style={{ textAlign: 'center', marginBottom: '80px' }} className="reveal">
+          <h2 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 900, color: '#FFFFFF', marginBottom: '20px' }}>
+            Trusted by <span className="text-gradient">Millions</span>
           </h2>
-          <p style={{ fontSize: '18px', color: colors.textSecondary }}>
-            Don't just take our word for it. Here's what our global community has to say 
-            about their Date-x experience.
+          <p style={{ fontSize: '18px', color: 'rgba(255, 255, 255, 0.7)', maxWidth: '600px', margin: '0 auto' }}>
+            Don't just take our word for it. Hear what our community has to say.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
-          {testimonials.map((t, index) => (
-            <div
-              key={index}
-              className="glass reveal"
-              style={{
-                padding: '40px',
-                borderRadius: '32px',
-                position: 'relative',
-                animationDelay: `${index * 0.15}s`,
-                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px) scale(1.02)';
-                e.currentTarget.style.borderColor = `${t.color}33`;
-                e.currentTarget.style.boxShadow = `0 20px 40px ${t.color}10`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-            >
-              {/* Quote Icon */}
-              <div style={{ fontSize: '48px', color: `${t.color}33`, position: 'absolute', top: '20px', right: '40px', lineHeight: 1 }}>
-                "
-              </div>
-
-              <div style={{ display: 'flex', gap: '4px', marginBottom: '20px' }}>
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <span key={s} style={{ color: colors.primary, fontSize: '14px' }}>★</span>
-                ))}
-              </div>
-
-              <p style={{ fontSize: '17px', color: colors.textPrimary, lineHeight: 1.8, marginBottom: '32px', fontStyle: 'italic', position: 'relative', zIndex: 1 }}>
-                "{t.text}"
-              </p>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div style={{ 
-                  width: '56px', 
-                  height: '56px', 
-                  borderRadius: '18px', 
-                  background: colors.glassGradient,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '28px',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                }}>
-                  {t.avatar}
-                </div>
+        <div className="testimonials-grid">
+          {reviews.map((review, index) => (
+            <div key={index} className="glass testimonial-card reveal" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className="testimonial-quote">“</div>
+              <p className="testimonial-text">{review.text}</p>
+              <div className="testimonial-user">
+                <div className="user-avatar">{review.avatar}</div>
                 <div>
-                  <div style={{ fontWeight: 800, fontSize: '18px', color: colors.white }}>{t.name}</div>
-                  <div style={{ fontSize: '14px', color: colors.textMuted }}>{t.role}</div>
+                  <div className="user-name">{review.name}</div>
+                  <div className="user-role">{review.role}</div>
                 </div>
               </div>
             </div>
