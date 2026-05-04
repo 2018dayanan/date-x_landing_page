@@ -39,7 +39,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, subtitle, light = fa
         <p
           style={{
             fontSize: '18px',
-            color: light ? 'rgba(255,255,255,0.7)' : colors.textLight,
+            color: light ? 'rgba(255,255,255,0.7)' : colors.textSecondary,
             maxWidth: '600px',
             margin: '0 auto',
             lineHeight: 1.6,
