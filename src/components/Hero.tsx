@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import colors from '../styles/colors';
 import Button from './Button';
 
 const Hero: React.FC = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <section
       id="home"
@@ -45,16 +47,10 @@ const Hero: React.FC = () => {
       />
 
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-          gap: '60px', 
-          alignItems: 'center',
-          textAlign: 'center',
-        }}>
+        <div className="hero-grid">
           
           {/* Left Content */}
-          <div className="reveal" style={{ maxWidth: '640px', margin: '0 auto' }}>
+          <div className="reveal hero-content" style={{ maxWidth: '720px' }}>
             {/* Premium Badge */}
             <div
               style={{
@@ -76,12 +72,12 @@ const Hero: React.FC = () => {
 
             <h1
               style={{
-                fontSize: 'clamp(40px, 8vw, 84px)',
+                fontSize: 'clamp(44px, 7vw, 90px)',
                 fontWeight: 900,
                 color: colors.white,
-                lineHeight: 1,
+                lineHeight: 1.05,
                 marginBottom: '28px',
-                letterSpacing: '-2px',
+                letterSpacing: '-3px',
               }}
             >
               Connect in{' '}
@@ -92,44 +88,37 @@ const Hero: React.FC = () => {
 
             <p
               style={{
-                fontSize: 'clamp(16px, 4vw, 20px)',
+                fontSize: 'clamp(17px, 4vw, 21px)',
                 color: colors.textSecondary,
                 lineHeight: 1.8,
                 marginBottom: '48px',
-                maxWidth: '560px',
-                margin: '0 auto 48px',
+                maxWidth: '580px',
               }}
             >
-              Experience the next generation of social interaction. HD video calls, instant rewards, and a global community.
+              Experience the next generation of social interaction. HD video calls, 
+              instant rewards, and a global community waiting for you.
             </p>
 
             {/* CTA Buttons */}
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <Button variant="primary" size="lg" style={{ minWidth: '200px' }}>
-                🚀 Get Started
+            <div className="hero-ctas" style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              <Button variant="primary" size="lg" style={{ minWidth: '220px' }}>
+                🚀 Start Exploring
               </Button>
-              <Button variant="outline" size="lg" style={{ minWidth: '200px' }}>
+              <Button variant="outline" size="lg" style={{ minWidth: '220px' }} onClick={() => setIsVideoOpen(true)}>
                 🎬 Watch Demo
               </Button>
             </div>
 
-            {/* Trusted By / Stats */}
-            <div style={{ 
-              display: 'flex', 
-              gap: '32px', 
-              marginTop: '64px', 
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexWrap: 'wrap'
-            }}>
+            {/* Stats */}
+            <div className="hero-stats" style={{ display: 'flex', gap: '48px', marginTop: '64px', alignItems: 'center' }}>
               <div>
-                <div style={{ fontSize: '28px', fontWeight: 900, color: colors.white }}>10M+</div>
-                <div style={{ fontSize: '12px', color: colors.textMuted, fontWeight: 500 }}>Active Users</div>
+                <div style={{ fontSize: '32px', fontWeight: 900, color: colors.white }}>10M+</div>
+                <div style={{ fontSize: '14px', color: colors.textMuted, fontWeight: 500 }}>Active Users</div>
               </div>
-              <div style={{ width: '1px', height: '30px', background: 'rgba(255,255,255,0.1)' }} className="hide-mobile" />
+              <div style={{ width: '1px', height: '40px', background: 'rgba(255,255,255,0.1)' }} className="hide-mobile" />
               <div>
-                <div style={{ fontSize: '28px', fontWeight: 900, color: colors.white }}>4.9★</div>
-                <div style={{ fontSize: '12px', color: colors.textMuted, fontWeight: 500 }}>App Rating</div>
+                <div style={{ fontSize: '32px', fontWeight: 900, color: colors.white }}>4.9★</div>
+                <div style={{ fontSize: '14px', color: colors.textMuted, fontWeight: 500 }}>App Rating</div>
               </div>
             </div>
           </div>
@@ -205,6 +194,74 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      {isVideoOpen && (
+        <div 
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0, 0, 0, 0.9)',
+            backdropFilter: 'blur(20px)',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px',
+          }}
+          onClick={() => setIsVideoOpen(false)}
+        >
+          <div 
+            style={{
+              position: 'relative',
+              width: '100%',
+              maxWidth: '400px',
+              aspectRatio: '9/16',
+              background: '#000',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              boxShadow: '0 0 100px rgba(244, 140, 37, 0.3)',
+              border: '1px solid rgba(255,255,255,0.1)',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setIsVideoOpen(false)}
+              style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                width: '40px',
+                height: '40px',
+                background: 'rgba(255,255,255,0.1)',
+                border: 'none',
+                borderRadius: '50%',
+                color: '#fff',
+                fontSize: '20px',
+                cursor: 'pointer',
+                zIndex: 10,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              ✕
+            </button>
+
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src="https://www.youtube.com/embed/B8HUkEZG-Nw?autoplay=1" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen
+              style={{ border: 'none' }}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
