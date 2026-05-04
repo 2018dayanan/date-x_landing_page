@@ -84,11 +84,32 @@ body {
   100% { background-position: 200% 0; }
 }
 
+/* Responsive Foundation */
+:root {
+  --container-padding: 24px;
+}
+
+@media (max-width: 1024px) {
+  :root { --container-padding: 32px; }
+}
+
+@media (max-width: 768px) {
+  :root { --container-padding: 20px; }
+  * { text-align: center; }
+}
+
+/* App Container */
+.app {
+  min-height: 100vh;
+  background: var(--deep-blue);
+  overflow-x: hidden;
+}
+
 /* Utility Classes */
 .container {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--container-padding);
 }
 
 .glass {
@@ -109,11 +130,28 @@ body {
   animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Responsive Grid/Flex Utilities */
+.mobile-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.hide-mobile {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+
 /* Responsive Fixes */
 @media (max-width: 768px) {
   html { font-size: 14px; }
-  .container { padding: 0 20px; }
-  * { text-align: center; }
+  
+  h1 { font-size: 40px !important; line-height: 1.2 !important; }
+  h2 { font-size: 32px !important; }
+  h3 { font-size: 24px !important; }
+  
+  .desktop-nav { display: none !important; }
+  .mobile-menu-btn { display: flex !important; }
 }
 
 /* Global Link Styles */

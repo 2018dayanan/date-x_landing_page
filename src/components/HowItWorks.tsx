@@ -94,12 +94,17 @@ const HowItWorks: React.FC = () => {
             How It <span className="text-gradient">Works</span>
           </h2>
           <p style={{ fontSize: '18px', color: colors.textSecondary }}>
-            Getting started with Date-x is simple. Follow these four steps to begin 
+            Getting started with Date-x is simple. Follow these four steps to begin
             your global connection journey.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', position: 'relative' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '40px',
+          position: 'relative'
+        }}>
           {/* Connector Line (Desktop) */}
           <div style={{
             position: 'absolute',
@@ -120,19 +125,22 @@ const HowItWorks: React.FC = () => {
                 position: 'relative',
                 zIndex: 1,
                 animationDelay: `${index * 0.2}s`,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
               }}
             >
               <div
                 style={{
-                  width: '100px',
-                  height: '100px',
+                  width: '90px',
+                  height: '90px',
                   background: colors.glassGradient,
-                  borderRadius: '30px',
+                  borderRadius: '28px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '40px',
-                  margin: '0 auto 32px',
+                  fontSize: '36px',
+                  marginBottom: '28px',
                   position: 'relative',
                   border: '1px solid rgba(255,255,255,0.1)',
                   boxShadow: '0 20px 40px rgba(0,0,0,0.3)',

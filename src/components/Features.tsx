@@ -82,7 +82,7 @@ const Features: React.FC = () => {
 
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
           gap: '30px',
           position: 'relative',
           zIndex: 2 
@@ -92,11 +92,15 @@ const Features: React.FC = () => {
               key={index}
               className="glass reveal"
               style={{
-                padding: '48px',
+                padding: '40px 32px',
                 borderRadius: '32px',
                 transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
                 cursor: 'pointer',
                 animationDelay: `${index * 0.1}s`,
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget;
@@ -114,41 +118,42 @@ const Features: React.FC = () => {
               }}
             >
               <div style={{
-                width: '80px',
-                height: '80px',
+                width: '70px',
+                height: '70px',
                 background: feature.gradient,
-                borderRadius: '24px',
+                borderRadius: '20px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '36px',
-                marginBottom: '32px',
+                fontSize: '32px',
+                marginBottom: '28px',
                 boxShadow: `0 12px 24px ${feature.accent}33`,
               }}>
                 {feature.icon}
               </div>
 
-              <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '16px', color: colors.white }}>
+              <h3 style={{ fontSize: '22px', fontWeight: 800, marginBottom: '16px', color: colors.white }}>
                 {feature.title}
               </h3>
 
-              <p style={{ fontSize: '16px', color: colors.textSecondary, lineHeight: 1.8 }}>
+              <p style={{ fontSize: '15px', color: colors.textSecondary, lineHeight: 1.8 }}>
                 {feature.description}
               </p>
 
               <div style={{ 
-                marginTop: '32px', 
+                marginTop: 'auto', 
+                paddingTop: '28px',
                 display: 'flex', 
                 alignItems: 'center', 
                 gap: '8px', 
                 color: feature.accent, 
                 fontWeight: 700,
-                fontSize: '14px',
+                fontSize: '13px',
                 textTransform: 'uppercase',
                 letterSpacing: '1px'
               }}>
                 <span>Learn more</span>
-                <span style={{ fontSize: '18px', transition: 'transform 0.3s' }}>→</span>
+                <span style={{ fontSize: '16px', transition: 'transform 0.3s' }}>→</span>
               </div>
             </div>
           ))}
