@@ -44,8 +44,10 @@
   gap: 14px;
   cursor: pointer;
   text-decoration: none;
-  height: 40px; /* Fixed height for container */
-  width: 150px; /* Match logo width to keep space */
+  height: 40px;
+  /* Fixed height for container */
+  width: 150px;
+  /* Match logo width to keep space */
   position: relative;
 }
 
@@ -79,12 +81,37 @@
   transition: all 0.3s;
   position: relative;
   text-decoration: none;
+  padding: 8px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f48c25, #FF007F, #7000FF);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(244, 140, 37, 0.5);
 }
 
 .nav-link:hover {
   opacity: 1;
   transform: translateY(-1px);
   text-shadow: 0 0 12px rgba(244, 140, 37, 0.8), 0 0 24px rgba(255, 0, 127, 0.4);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  opacity: 1;
+  color: #f48c25;
 }
 
 .mobile-menu-btn {

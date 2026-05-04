@@ -8,20 +8,49 @@ import colors from '../styles/colors';
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+    
+    // Intersection Observer for Scroll Spy
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -40% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Observe all sections
+    const sections = ['home', 'features', 'how-it-works', 'download'];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '/#home' },
-    { name: 'Features', href: '/#features' },
-    { name: 'How It Works', href: '/#how-it-works' },
-    { name: 'Download', href: '/#download' },
+    { name: 'Home', id: 'home', href: '/#home' },
+    { name: 'Features', id: 'features', href: '/#features' },
+    { name: 'How It Works', id: 'how-it-works', href: '/#how-it-works' },
+    { name: 'Download', id: 'download', href: '/#download' },
   ];
 
   return (
@@ -53,7 +82,11 @@ const Navbar: React.FC = () => {
         {/* Desktop Nav Links */}
         <div className="nav-links">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="nav-link">
+            <a 
+              key={link.name} 
+              href={link.href} 
+              className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
+            >
               {link.name}
             </a>
           ))}
@@ -75,7 +108,7 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className="mobile-nav-link"
+              className={`mobile-nav-link ${activeSection === link.id ? 'active' : ''}`}
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.name}
