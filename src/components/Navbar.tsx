@@ -1,3 +1,5 @@
+import mainLogo from '../assets/main_log.png';
+import textLogo from '../assets/text_logo.png';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import colors from '../styles/colors';
@@ -34,7 +36,7 @@ const Navbar: React.FC = () => {
         transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
       }}
     >
-      <div
+      <div 
         className="container"
         style={{
           display: 'flex',
@@ -53,32 +55,25 @@ const Navbar: React.FC = () => {
       >
         {/* Logo */}
         <Link to="/" style={{ textDecoration: 'none' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}>
-            <div
-              style={{
-                width: '42px',
-                height: '42px',
-                background: colors.primaryGradient,
-                borderRadius: '14px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '22px',
-                boxShadow: `0 8px 20px ${colors.primary}44`,
-              }}
-            >
-              💜
-            </div>
-            <span
-              style={{
-                fontSize: '26px',
-                fontWeight: 800,
-                color: colors.white,
-                letterSpacing: '-0.5px',
-              }}
-            >
-              Date-x
-            </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer' }}>
+            <img 
+              src={mainLogo} 
+              alt="Date-x Logo" 
+              style={{ 
+                width: '42px', 
+                height: '42px', 
+                objectFit: 'contain',
+                filter: `drop-shadow(0 8px 20px ${colors.primary}44)` 
+              }} 
+            />
+            <img 
+              src={textLogo} 
+              alt="Date-x" 
+              style={{ 
+                height: '24px', 
+                objectFit: 'contain' 
+              }} 
+            />
           </div>
         </Link>
 

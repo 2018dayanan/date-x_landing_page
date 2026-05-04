@@ -1,3 +1,5 @@
+import mainLogo from '../assets/main_log.png';
+import textLogo from '../assets/text_logo.png';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import colors from '../styles/colors';
@@ -13,10 +15,10 @@ const Footer: React.FC = () => {
       { name: 'About Us', href: '#' },
       { name: 'Contact', href: '#' },
     ],
-    Resources: [
-      { name: 'Help Center', href: '#' },
-      { name: 'Blog', href: '#' },
-      { name: 'Community', href: '#' },
+    Legal: [
+      { name: 'Privacy Policy', href: '/privacy' },
+      { name: 'Terms', href: '#' },
+      { name: 'Cookies', href: '#' },
     ],
   };
 
@@ -34,31 +36,24 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div style={{ gridColumn: 'span 2' }}>
             <Link to="/" style={{ textDecoration: 'none' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-                <div
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
+                <img
+                  src={mainLogo}
+                  alt="Date-x Logo"
                   style={{
                     width: '42px',
                     height: '42px',
-                    background: colors.primaryGradient,
-                    borderRadius: '14px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '22px',
+                    objectFit: 'contain'
                   }}
-                >
-                  💜
-                </div>
-                <span
+                />
+                <img
+                  src={textLogo}
+                  alt="Date-x"
                   style={{
-                    fontSize: '28px',
-                    fontWeight: 900,
-                    color: colors.white,
-                    letterSpacing: '-1px',
+                    height: '24px',
+                    objectFit: 'contain'
                   }}
-                >
-                  Date-x
-                </span>
+                />
               </div>
             </Link>
             <p
@@ -184,7 +179,7 @@ const Footer: React.FC = () => {
           gap: '20px',
         }}>
           <p style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500 }}>
-            © 2024 Date-x. All rights reserved. Made with 💜 worldwide.
+            © 2024 Date-x. All rights reserved. Made with 💜 Eonpulsetech.
           </p>
           <div style={{ display: 'flex', gap: '32px' }}>
             <Link to="/privacy" style={{ color: colors.textMuted, fontSize: '14px', fontWeight: 500, textDecoration: 'none' }}>Privacy</Link>
