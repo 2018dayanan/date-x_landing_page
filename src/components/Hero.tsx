@@ -70,10 +70,10 @@ const Hero: React.FC = () => {
             {/* CTA Buttons */}
             <div className="hero-ctas">
               <Button variant="primary" size="lg" style={{ minWidth: '180px' }}>
-                🚀 Start Exploring
+                Start Exploring
               </Button>
               <Button variant="glass" size="lg" style={{ minWidth: '180px' }} onClick={() => setIsVideoOpen(true)}>
-                🎬 Watch Demo
+                Watch Demo
               </Button>
             </div>
 

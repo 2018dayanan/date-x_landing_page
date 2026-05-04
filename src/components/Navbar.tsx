@@ -1,6 +1,7 @@
 import textLogo from '../assets/logo_white.png';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { FaBars, FaXmark } from 'react-icons/fa6';
 import './Navbar.css';
 import Button from './Button';
 import colors from '../styles/colors';
@@ -14,7 +15,7 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    
+
     // Intersection Observer for Scroll Spy
     const observerOptions = {
       root: null,
@@ -31,7 +32,7 @@ const Navbar: React.FC = () => {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
+
     // Observe all sections
     const sections = ['home', 'features', 'how-it-works', 'download'];
     sections.forEach(id => {
@@ -59,8 +60,8 @@ const Navbar: React.FC = () => {
         className="container navbar-container"
         style={{
           background: scrolled
-            ? `linear-gradient(135deg, rgba(244, 140, 37, 0.25) 0%, rgba(255, 0, 127, 0.2) 50%, rgba(112, 0, 255, 0.25) 100%)`
-            : `linear-gradient(135deg, rgba(244, 140, 37, 0.15) 0%, rgba(255, 0, 127, 0.12) 50%, rgba(112, 0, 255, 0.15) 100%)`,
+            ? `linear-gradient(135deg, rgba(244, 140, 37, 0.5) 0%, rgba(255, 0, 127, 0.5) 50%, rgba(112, 0, 255, 0.5) 100%)`
+            : `linear-gradient(135deg, rgba(244, 140, 37, 0.5) 0%, rgba(255, 0, 127, 0.5) 50%, rgba(112, 0, 255, 0.5) 100%)`,
           padding: scrolled ? '10px 32px' : '14px 40px',
           maxWidth: scrolled ? '1000px' : '1200px',
         }}
@@ -82,9 +83,9 @@ const Navbar: React.FC = () => {
         {/* Desktop Nav Links */}
         <div className="nav-links">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
+            <a
+              key={link.name}
+              href={link.href}
               className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
             >
               {link.name}
@@ -97,7 +98,7 @@ const Navbar: React.FC = () => {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="mobile-menu-btn"
         >
-          {mobileMenuOpen ? '✕' : '☰'}
+          {mobileMenuOpen ? <FaXmark /> : <FaBars />}
         </button>
       </div>
 

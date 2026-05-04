@@ -166,4 +166,9 @@
   .mobile-menu-btn {
     display: flex;
   }
+
+  .navbar-container {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+  }
 }

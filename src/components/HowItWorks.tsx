@@ -130,7 +130,7 @@ const HowItWorks: React.FC = () => {
                 cursor: 'pointer',
               }}
             >
-              Get Started 🚀
+              Get Started
             </button>
           </div>
         </div>

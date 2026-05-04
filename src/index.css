@@ -204,6 +204,11 @@ body {
   .hide-mobile {
     display: none !important;
   }
+
+  section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
 }
 
 /* Responsive Fixes */

@@ -46,3 +46,14 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+@media (max-width: 768px) {
+  .download-card {
+    padding: 50px 20px;
+    border-radius: 32px;
+  }
+
+  .download-description {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+}
