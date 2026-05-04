@@ -1,5 +1,4 @@
-import mainLogo from '../assets/main_log.png';
-import textLogo from '../assets/text_logo.png';
+import textLogo from '../assets/logo_white.png';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
@@ -43,12 +42,12 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <Link to="/" className="logo-container">
           <img
-            src={mainLogo}
+            src={textLogo}
             alt="Date-x Logo"
             className="logo-main"
             style={{ filter: `drop-shadow(0 8px 20px ${colors.primary}66)` }}
           />
-          <img src={textLogo} alt="Date-x" className="logo-text" />
+          {/* <img src={textLogo} alt="Date-x" className="logo-text" /> */}
         </Link>
 
         {/* Desktop Nav Links */}

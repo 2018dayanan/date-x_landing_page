@@ -44,12 +44,19 @@
   gap: 14px;
   cursor: pointer;
   text-decoration: none;
+  height: 40px; /* Fixed height for container */
+  width: 150px; /* Match logo width to keep space */
+  position: relative;
 }
 
 .logo-main {
-  width: 42px;
-  height: 42px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
 .logo-text {

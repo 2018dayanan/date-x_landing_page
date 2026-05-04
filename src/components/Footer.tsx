@@ -1,5 +1,5 @@
-import mainLogo from '../assets/main_log.png';
-import textLogo from '../assets/text_logo.png';
+
+import textLogo from '../assets/logo_white.png';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
@@ -31,8 +31,7 @@ const Footer: React.FC = () => {
           <div className="footer-brand">
             <Link to="/" className="footer-logo-link">
               <div className="footer-logo-container">
-                <img src={mainLogo} alt="Date-x Logo" className="footer-logo-main" />
-                <img src={textLogo} alt="Date-x" className="footer-logo-text" />
+                <img src={textLogo} alt="Date-x Logo" className="footer-logo-main" />
               </div>
             </Link>
             <p className="footer-description">
