@@ -166,3 +166,40 @@
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 120px 0 60px;
+    text-align: center;
+  }
+
+  .phone-container {
+    animation: none !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-title {
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .hero-description {
+    margin-bottom: 32px;
+  }
+
+  .hero-ctas {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-stats {
+    margin-top: 40px;
+    gap: 32px;
+    justify-content: center;
+  }
+}

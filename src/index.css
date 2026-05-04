@@ -25,6 +25,12 @@ body {
   color: #FFFFFF;
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Scrollbar Styling */
@@ -152,6 +158,15 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .glass {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.08); /* Increase opacity to compensate for lost blur */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
 .glass::before {
   content: '';
   position: absolute;
@@ -178,6 +193,7 @@ body {
 
 .reveal {
   animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
 }
 
 /* Responsive Grid/Flex Utilities */
@@ -260,12 +276,12 @@ body {
   overflow: hidden;
 }
 
-.mesh-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.15;
-  animation: orb-float 20s infinite alternate;
+@media (max-width: 768px) {
+  .mesh-orb {
+    animation: none !important; /* Stop expensive background animations */
+    filter: blur(60px); /* Lower blur radius */
+    opacity: 0.1;
+  }
 }
 
 .orb-1 {

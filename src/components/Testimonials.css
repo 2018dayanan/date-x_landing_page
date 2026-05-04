@@ -7,14 +7,25 @@
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .testimonial-card {
-  padding: 48px;
-  border-radius: 40px;
+  padding: 32px 24px;
+  border-radius: 30px;
   position: relative;
+}
+
+@media (min-width: 769px) {
+  .testimonials-grid {
+    gap: 30px;
+  }
+  
+  .testimonial-card {
+    padding: 48px;
+    border-radius: 40px;
+  }
 }
 
 .testimonial-card:hover {
