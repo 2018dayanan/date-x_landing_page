@@ -5,89 +5,263 @@
   overflow: hidden;
 }
 
-.step-badge {
-  display: inline-block;
-  background: rgba(112, 0, 255, 0.1);
-  color: #7000FF;
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-size: 14px;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border: 1px solid rgba(112, 0, 255, 0.2);
+/* Background Orbs */
+.howit-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
 }
 
-.how-it-works-grid {
+.howit-orb-1 {
+  top: 10%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(112, 0, 255, 0.12), rgba(255, 0, 127, 0.12));
+  animation: orb-float 18s infinite ease-in-out;
+}
+
+.howit-orb-2 {
+  bottom: 10%;
+  right: -10%;
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, rgba(244, 140, 37, 0.12), rgba(0, 255, 255, 0.12));
+  animation: orb-float 15s infinite ease-in-out reverse;
+}
+
+/* Section Badge */
+.section-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(112, 0, 255, 0.15), rgba(244, 140, 37, 0.15));
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #7000FF;
+  border: 1px solid rgba(112, 0, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Card Container */
+.howit-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 40px;
+  padding: 60px 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Steps Grid */
+.howit-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 40px;
   position: relative;
 }
 
-.connector-line {
+/* Connecting Line */
+.howit-connector {
   position: absolute;
-  top: 120px;
-  left: 10%;
-  right: 10%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(244, 140, 37, 0.27), rgba(255, 0, 127, 0.27), transparent);
+  top: 65px;
+  left: 15%;
+  right: 15%;
+  height: 3px;
+  background: linear-gradient(90deg, #f48c25, #7000FF, #FF007F, #00C853);
+  border-radius: 10px;
+  opacity: 0.3;
   z-index: 0;
 }
 
-.step-card {
-  text-align: center;
-  position: relative;
-  z-index: 1;
+/* Step Card */
+.howit-step {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.step-icon-wrapper {
-  width: 90px;
-  height: 90px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  margin-bottom: 28px;
+  text-align: center;
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  padding: 20px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 24px;
 }
 
-.step-number {
+.howit-step:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Step Number Badge */
+.howit-number {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 32px;
-  height: 32px;
-  background: #f48c25;
-  color: #FFFFFF;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 14px;
   font-weight: 800;
-  border: 4px solid #050B18;
-}
-
-.step-title {
-  font-size: 24px;
-  font-weight: 800;
-  margin-bottom: 16px;
   color: #FFFFFF;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.step-description {
-  font-size: 16px;
+/* Icon Wrapper */
+.howit-icon-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.howit-step:hover .howit-icon-wrapper {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.howit-step.active .howit-icon-wrapper {
+  transform: translateY(-10px) scale(1.05);
+  border-color: var(--step-color, rgba(255, 255, 255, 0.4));
+}
+
+/* Icon */
+.howit-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Title */
+.howit-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+/* Description */
+.howit-description {
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
-  max-width: 240px;
+  margin-bottom: 0;
+}
+
+/* Bottom Accent */
+.howit-accent {
+  width: 50px;
+  height: 4px;
+  border-radius: 10px;
+  margin-top: 20px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.howit-step:hover .howit-accent {
+  width: 80px;
+  opacity: 1;
+}
+
+/* CTA */
+.howit-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 36px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.howit-cta span {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.howit-cta-btn {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #f48c25, #FF007F);
+  border: none;
+  border-radius: 50px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(244, 140, 37, 0.3);
+}
+
+.howit-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(244, 140, 37, 0.4);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .how-it-works-section {
+    padding: 80px 0;
+  }
+
+  .howit-card {
+    padding: 40px 20px;
+    border-radius: 28px;
+  }
+
+  .howit-grid {
+    gap: 32px;
+  }
+
+  .howit-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+
+  .howit-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+  }
+
+  .howit-number {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .howit-title {
+    font-size: 18px;
+  }
+
+  .howit-description {
+    font-size: 13px;
+  }
+
+  .howit-cta {
+    flex-direction: column;
+    padding: 16px 24px;
+    gap: 16px;
+  }
+
+  .howit-cta-btn {
+    width: 100%;
+  }
 }

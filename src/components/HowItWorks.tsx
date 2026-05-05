@@ -1,31 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './HowItWorks.css';
 
 const steps = [
   {
     title: 'Download App',
-    description: 'Get Date-x on your iOS or Android device for free.',
+    description: 'Get Date-x on your iOS or Android device for free. Available on all major platforms.',
     icon: '📥',
     gradient: 'linear-gradient(135deg, #f48c25 0%, #FF007F 100%)',
     color: '#f48c25',
   },
   {
     title: 'Create Profile',
-    description: 'Sign up in seconds and set up your profile with photos.',
+    description: 'Sign up in seconds and set up your profile with photos and interests that represent you.',
     icon: '👤',
     gradient: 'linear-gradient(135deg, #7000FF 0%, #00FFFF 100%)',
     color: '#7000FF',
   },
   {
     title: 'Find Matches',
-    description: 'Our smart algorithm helps you find compatible connections.',
+    description: 'Our smart algorithm helps you find compatible connections based on your interests.',
     icon: '🔍',
     gradient: 'linear-gradient(135deg, #FF007F 0%, #f48c25 100%)',
     color: '#FF007F',
   },
   {
     title: 'Start Connecting',
-    description: 'Jump into high-quality video calls and start building connections.',
+    description: 'Jump into high-quality video calls and start building meaningful connections.',
     icon: '🎥',
     gradient: 'linear-gradient(135deg, #00C853 0%, #00FFFF 100%)',
     color: '#00C853',
@@ -33,104 +33,88 @@ const steps = [
 ];
 
 const HowItWorks: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [hoveredStep, setHoveredStep] = useState<number | null>(null);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <section id="how-it-works" className="how-it-works-section">
-      {/* Background - hidden on mobile */}
+      {/* Background orbs */}
+      {!isMobile && (
+        <>
+          <div className="howit-orb howit-orb-1" />
+          <div className="howit-orb howit-orb-2" />
+        </>
+      )}
+
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '60px' }} className="reveal">
-          <div className="step-badge">Simple Process</div>
-          <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 900, color: '#FFFFFF', marginBottom: '16px' }}>
+          <span className="section-badge">🚀 Simple Process</span>
+          <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 900, color: '#FFFFFF', marginTop: '16px', marginBottom: '16px' }}>
             How It <span className="text-gradient">Works</span>
           </h2>
-          <p style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.7)', maxWidth: '500px', margin: '0 auto' }}>
-            Getting started with Date-x is easy. Follow these simple steps.
+          <p style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.7)', maxWidth: '550px', margin: '0 auto', lineHeight: 1.7 }}>
+            Getting started with Date-x is easy. Follow these simple steps to begin your journey.
           </p>
         </div>
 
-        {/* Simplified Container */}
-        <div style={{
-          background: 'rgba(255, 255, 255, 0.02)',
-          borderRadius: '32px',
-          padding: '40px 20px',
-          border: '1px solid rgba(255, 255, 255, 0.06)',
-        }}>
-          <div className="how-it-works-grid">
-            {/* Connector Line - Hidden on mobile */}
-            <div className="connector-line hide-mobile" />
+        {/* Steps Container */}
+        <div className="howit-card reveal">
+          <div className="howit-grid">
+            {/* Connecting Line */}
+            {!isMobile && <div className="howit-connector" />}
 
             {steps.map((step, index) => (
-              <div key={index} className="step-card reveal" style={{ animationDelay: `${index * 0.15}s` }}>
-                {/* Icon Container */}
+              <div
+                key={index}
+                className={`howit-step ${hoveredStep === index ? 'active' : ''}`}
+                style={{ '--step-color': step.color } as React.CSSProperties}
+                onMouseEnter={() => setHoveredStep(index)}
+                onMouseLeave={() => setHoveredStep(null)}
+              >
+                {/* Step number badge */}
+                <div className="howit-number" style={{ background: step.gradient }}>
+                  {index + 1}
+                </div>
+
+                {/* Icon Circle */}
                 <div
-                  className="step-icon-wrapper"
+                  className="howit-icon-wrapper"
                   style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    willChange: 'transform',
+                    background: `${step.color}15`,
+                    border: `2px solid ${step.color}30`,
                   }}
                 >
-                  <div style={{
-                    width: '64px',
-                    height: '64px',
-                    background: step.gradient,
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '28px',
-                    boxShadow: `0 8px 24px ${step.color}30`,
-                  }}>
-                    {step.icon}
-                  </div>
                   <div
-                    className="step-number"
+                    className="howit-icon"
                     style={{ background: step.gradient }}
                   >
-                    {index + 1}
+                    {step.icon}
                   </div>
                 </div>
 
-                <h3 className="step-title">{step.title}</h3>
-                <p className="step-description">{step.description}</p>
+                <h3 className="howit-title">{step.title}</h3>
+                <p className="howit-description">{step.description}</p>
 
-                <div style={{
-                  width: '40px',
-                  height: '4px',
-                  background: step.gradient,
-                  borderRadius: '10px',
-                  marginTop: '16px',
-                }} />
+                {/* Bottom accent */}
+                <div className="howit-accent" style={{ background: step.gradient }} />
               </div>
             ))}
           </div>
         </div>
 
         {/* CTA */}
-        <div style={{ marginTop: '40px', textAlign: 'center' }} className="reveal">
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '16px',
-            padding: '16px 32px',
-            background: 'rgba(255, 255, 255, 0.03)',
-            borderRadius: '24px',
-            border: '1px solid rgba(244, 140, 37, 0.2)',
-          }}>
-            <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px' }}>
-              Ready to start your journey?
-            </span>
-            <button
-              style={{
-                padding: '12px 28px',
-                background: 'linear-gradient(135deg, #f48c25, #FF007F)',
-                borderRadius: '50px',
-                border: 'none',
-                color: '#FFFFFF',
-                fontWeight: 700,
-                fontSize: '14px',
-                cursor: 'pointer',
-              }}
-            >
-              Get Started
+        <div style={{ textAlign: 'center', marginTop: '60px' }} className="reveal">
+          <div className="howit-cta">
+            <span>Ready to start your journey?</span>
+            <button className="howit-cta-btn">
+              Get Started Now 🚀
             </button>
           </div>
         </div>
