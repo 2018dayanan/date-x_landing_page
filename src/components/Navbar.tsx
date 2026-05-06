@@ -1,10 +1,9 @@
-import textLogo from '../assets/logo_white.png';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaXmark } from 'react-icons/fa6';
 import './Navbar.css';
 import Button from './Button';
-import colors from '../styles/colors';
+import textLogo from '../assets/logo_dark.png';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -59,25 +58,13 @@ const Navbar: React.FC = () => {
       <div
         className="container navbar-container"
         style={{
-          background: scrolled
-            ? `linear-gradient(135deg, rgba(244, 140, 37, 0.5) 0%, rgba(255, 0, 127, 0.5) 50%, rgba(112, 0, 255, 0.5) 100%)`
-            : `linear-gradient(135deg, rgba(244, 140, 37, 0.5) 0%, rgba(255, 0, 127, 0.5) 50%, rgba(112, 0, 255, 0.5) 100%)`,
           padding: scrolled ? '10px 32px' : '14px 40px',
           maxWidth: scrolled ? '1000px' : '1200px',
         }}
       >
-        {/* Colorful gradient overlay strip at top of navbar */}
-        <div className="navbar-top-strip" />
-
         {/* Logo */}
         <Link to="/" className="logo-container">
-          <img
-            src={textLogo}
-            alt="Date-x Logo"
-            className="logo-main"
-            style={{ filter: `drop-shadow(0 8px 20px ${colors.primary}66)` }}
-          />
-          {/* <img src={textLogo} alt="Date-x" className="logo-text" /> */}
+          <img src={textLogo} alt="DateX" style={{ height: '36px', width: 'auto' }} />
         </Link>
 
         {/* Desktop Nav Links */}
@@ -92,14 +79,19 @@ const Navbar: React.FC = () => {
             </a>
           ))}
         </div>
+        
+        {/* Actions (Visible on all screens) */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <Button variant="primary" size="sm">Download</Button>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="mobile-menu-btn"
-        >
-          {mobileMenuOpen ? <FaXmark /> : <FaBars />}
-        </button>
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="mobile-menu-btn"
+          >
+            {mobileMenuOpen ? <FaXmark /> : <FaBars />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -116,7 +108,6 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '10px' }}>
-            <Button variant="glass" size="md" style={{ width: '100%' }}>Login</Button>
             <Button variant="primary" size="md" style={{ width: '100%' }}>Download App</Button>
           </div>
         </div>

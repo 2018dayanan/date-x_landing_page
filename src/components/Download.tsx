@@ -6,29 +6,19 @@ const Download: React.FC = () => {
 
   return (
     <section id="download" className="download-section">
-      {/* Background elements */}
-      <div className="download-orb download-orb-1" />
-      <div className="download-orb download-orb-2" />
-
       <div className="container">
         {/* Main CTA Card */}
         <div className="download-card reveal">
-          {/* Animated top border */}
-          <div className="download-card-border" />
-
-          {/* Glow effect */}
-          <div className="download-glow" />
-
           {/* Badge */}
           <div className="download-badge">
             <span>🚀</span> Limited Time Offer
           </div>
 
           <h2 className="download-title">
-            Ready to <span className="text-gradient">Get Started?</span>
+            Ready to <span style={{ color: 'var(--primary)' }}>Get Started?</span>
           </h2>
           <p className="download-description">
-            Join millions of people already using Date-x. Download now and get <strong>500 FREE Tokens</strong> on signup!
+            Join millions of people already using DateX. Download now and get <strong>500 FREE Tokens</strong> on signup!
           </p>
 
           {/* Platform Buttons */}
@@ -71,9 +61,9 @@ const Download: React.FC = () => {
           {/* Features List */}
           <div className="download-features">
             {[
-              { icon: '✓', text: 'Free to Download', color: '#00C853' },
-              { icon: '✓', text: '500 Bonus Tokens', color: '#f48c25' },
-              { icon: '✓', text: 'No Credit Card Required', color: '#7000FF' },
+              { icon: '✓', text: 'Free to Download', color: 'var(--primary)' },
+              { icon: '✓', text: '500 Bonus Tokens', color: 'var(--primary)' },
+              { icon: '✓', text: 'No Credit Card Required', color: 'var(--primary)' },
             ].map((feature, i) => (
               <div key={i} className="download-feature-item">
                 <span className="download-feature-icon" style={{ color: feature.color }}>{feature.icon}</span>
