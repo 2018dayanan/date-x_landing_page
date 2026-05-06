@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
-import Testimonials from './components/Testimonials';
 import Download from './components/Download';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -17,7 +16,6 @@ const Home = () => (
     <Hero />
     <Features />
     <HowItWorks />
-    <Testimonials />
     <Download />
     <Footer />
   </div>

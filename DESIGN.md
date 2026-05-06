@@ -116,7 +116,6 @@ We use **Plus Jakarta Sans** exclusively across all levels to maintain a friendl
 - **Scale:** The system emphasizes hierarchy through weight shifts rather than massive size differences, keeping the mobile-first experience compact.
 
 ## Layout & Spacing
-The layout follows a **Fluid Mobile-First** model, optimized for a max-width of 448px (max-w-md). 
 
 - **Margins:** A standard 24px (1.5rem) horizontal margin is applied to all main content containers.
 - **Rhythm:** Vertical spacing uses a base-4 system. Primary action buttons are spaced 16px apart, while major sections (Hero vs. Actions) use 32px or 64px gaps to create clear visual separation.

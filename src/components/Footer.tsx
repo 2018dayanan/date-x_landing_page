@@ -15,11 +15,6 @@ const Footer: React.FC = () => {
       { name: 'About Us', href: '#' },
       { name: 'Contact', href: '#' },
     ],
-    Legal: [
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms', href: '#' },
-      { name: 'Cookies', href: '#' },
-    ],
   };
 
   return (

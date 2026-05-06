@@ -8,6 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+chamet_product_section
 dist
 dist-ssr
 *.local

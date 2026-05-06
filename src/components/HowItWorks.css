@@ -5,7 +5,11 @@
   overflow: hidden;
 }
 
-/* Section Badge */
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
 .section-badge {
   display: inline-block;
   background: var(--surface-container-high);
@@ -20,133 +24,259 @@
   box-shadow: var(--shadow-ambient);
 }
 
-/* Card Container */
-.howit-card {
+.section-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  color: var(--on-surface);
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: var(--on-surface-variant);
+  max-width: 550px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Timeline Layout */
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* SVG Curved Animated Line */
+.timeline-svg-curve {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.timeline-svg-path {
+  stroke: url(#glowGradient);
+  stroke-width: 6px;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-dasharray: 20 20;
+  animation: flowDown 1.5s linear infinite;
+  filter: drop-shadow(0 0 12px rgba(244, 140, 37, 0.6));
+}
+
+@keyframes flowDown {
+  from {
+    stroke-dashoffset: 40;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.timeline-mobile-connection {
+  display: none;
+}
+
+.timeline-items {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.item-left {
+  flex-direction: row;
+}
+
+.item-right {
+  flex-direction: row-reverse;
+}
+
+.timeline-content-wrapper,
+.timeline-empty {
+  width: 45%;
+}
+
+/* Timeline Node (Icon) */
+.timeline-node {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Offsetting nodes horizontally to align them with the S-curve */
+.node-0 {
+  transform: translateX(20px);
+}
+
+.node-1 {
+  transform: translateX(-20px);
+}
+
+.node-2 {
+  transform: translateX(20px);
+}
+
+.node-3 {
+  transform: translateX(-20px);
+}
+
+.node-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background: var(--surface-container-lowest);
+  border: 3px solid var(--primary);
+  border-radius: var(--radius-full);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-primary-sm);
+  color: var(--primary);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.node-icon-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  opacity: 0.15;
+  filter: blur(8px);
+  z-index: -1;
+  transition: opacity 0.4s ease;
+}
+
+.timeline-item.is-hovered .node-icon-wrapper {
+  transform: scale(1.15);
+  box-shadow: var(--shadow-primary-lg);
+  color: var(--on-primary);
+  background: var(--primary);
+}
+
+.timeline-item.is-hovered .node-icon-wrapper::after {
+  opacity: 0.4;
+}
+
+/* Content Card */
+.timeline-card {
   background: var(--surface-container-lowest);
   border: 1px solid var(--outline-variant);
   border-radius: var(--radius-3xl);
-  padding: 60px 40px;
-  position: relative;
-  z-index: 1;
+  padding: 30px;
   box-shadow: var(--shadow-ambient);
-}
-
-/* Steps Grid */
-.howit-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-  gap: 40px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-}
-
-/* Connecting Line */
-.howit-connector {
-  position: absolute;
-  top: 60px;
-  left: 15%;
-  right: 15%;
-  height: 2px;
-  background: var(--outline-variant);
-  border-radius: var(--radius-full);
-  opacity: 0.5;
-  z-index: 0;
-}
-
-/* Step Card */
-.howit-step {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  padding: 20px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border-radius: var(--radius-2xl);
+  gap: 20px;
 }
 
-.howit-step:hover {
-  background: var(--surface-variant);
-  transform: translateY(-4px);
+.item-left .timeline-card {
+  text-align: right;
+  transform-origin: center right;
 }
 
-/* Step Number Badge */
-.howit-number {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
+.item-right .timeline-card {
+  text-align: left;
+  transform-origin: center left;
+}
+
+.timeline-item.is-hovered .timeline-card {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-primary-lg);
+  border-color: var(--primary-container);
+}
+
+.timeline-card-content {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
+  flex-direction: column;
+}
+
+.item-left .timeline-card-content {
+  align-items: flex-end;
+}
+
+.item-right .timeline-card-content {
+  align-items: flex-start;
+}
+
+.timeline-step-badge {
+  display: inline-block;
+  font-size: 13px;
   font-weight: 800;
-  color: var(--on-primary);
-  background: var(--primary);
-  z-index: 2;
-  box-shadow: var(--shadow-primary-sm);
-  border: 4px solid var(--surface-container-lowest);
-}
-
-/* Icon Wrapper */
-.howit-icon-wrapper {
-  width: 120px;
-  height: 120px;
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1;
+  color: var(--primary);
   background: var(--surface-container);
-  border: 2px solid var(--primary-container);
-}
-
-.howit-step:hover .howit-icon-wrapper {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: var(--shadow-primary-sm);
-  border-color: var(--primary);
-}
-
-.howit-step.active .howit-icon-wrapper {
-  transform: translateY(-8px) scale(1.05);
-  border-color: var(--primary);
-}
-
-/* Icon */
-.howit-icon {
-  width: 80px;
-  height: 80px;
+  padding: 6px 16px;
   border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  background: var(--surface-container-high);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-/* Title */
-.howit-title {
-  font-size: 20px;
+.timeline-title {
+  font-size: 24px;
   font-weight: 800;
   color: var(--on-surface);
   margin-bottom: 12px;
 }
 
-/* Description */
-.howit-description {
-  font-size: 14px;
+.timeline-description {
+  font-size: 15px;
   color: var(--on-surface-variant);
-  line-height: 1.7;
-  margin-bottom: 0;
+  line-height: 1.6;
   font-weight: 500;
 }
 
-/* CTA */
+/* Assets inside Cards */
+.timeline-card-visual {
+  width: 100%;
+  border-radius: var(--radius-2xl);
+  background: var(--surface-container);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  min-height: 180px;
+}
+
+.timeline-card-visual img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-item.is-hovered .timeline-card-visual img {
+  transform: scale(1.05);
+}
+
+/* CTA Wrapper */
+.timeline-cta-wrapper {
+  text-align: center;
+  margin-top: 80px;
+}
+
 .howit-cta {
   display: inline-flex;
   align-items: center;
@@ -154,7 +284,7 @@
   padding: 20px 36px;
   background: var(--surface-container-lowest);
   border: 1px solid var(--outline-variant);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-lg);
   flex-wrap: wrap;
   justify-content: center;
   box-shadow: var(--shadow-ambient);
@@ -163,48 +293,159 @@
 .howit-cta span {
   font-size: 16px;
   color: var(--on-surface);
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* Mobile Optimizations */
-@media (max-width: 768px) {
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .timeline-container {
+    padding: 0 15px;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .timeline-mobile-connection {
+    display: block;
+    position: absolute;
+    top: 72px;
+    /* 40px (node top) + 32px (half of 64px wrapper) */
+    height: calc(100% + 40px);
+    /* 100% of item height + 40px gap to next item */
+    left: 32px;
+    /* center of left node */
+    width: calc(100% - 64px);
+    /* stretch from left node center to right node center */
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .timeline-mobile-connection .timeline-svg-path {
+    stroke: var(--primary);
+    /* Overrides the gradient so the line stays solid and visible */
+  }
+
+  .timeline-container::before {
+    display: none;
+  }
+
+  .timeline-items {
+    gap: 40px;
+    /* Reduce gap between items on mobile so the curve is tighter */
+  }
+
+  .timeline-item {
+    flex-direction: column !important;
+    position: relative;
+    gap: 0;
+  }
+
+  .timeline-empty {
+    display: none;
+  }
+
+  .timeline-content-wrapper {
+    width: 85%;
+    z-index: 2;
+  }
+
+  .item-left .timeline-content-wrapper {
+    margin-left: auto;
+  }
+
+  .item-right .timeline-content-wrapper {
+    margin-right: auto;
+  }
+
+  .timeline-node {
+    width: 60px;
+    position: absolute;
+    top: 40px;
+    left: auto;
+    right: auto;
+    transform: none !important;
+    z-index: 3;
+  }
+
+  .item-left .timeline-node {
+    left: 0;
+  }
+
+  .item-right .timeline-node {
+    right: 0;
+  }
+
+  .item-left .timeline-card,
+  .item-right .timeline-card {
+    text-align: left;
+    transform-origin: center;
+    margin-left: 0;
+    padding: 30px 24px;
+    border-radius: var(--radius-3xl);
+  }
+
+  .item-left .timeline-card-content,
+  .item-right .timeline-card-content {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
   .how-it-works-section {
     padding: 80px 0;
   }
 
-  .howit-card {
-    padding: 40px 20px;
-    border-radius: var(--radius-2xl);
+  .section-header {
+    margin-bottom: 50px;
   }
 
-  .howit-grid {
-    gap: 32px;
+  .timeline-content-wrapper {
+    width: 90%;
   }
 
-  .howit-icon-wrapper {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 20px;
+  .timeline-mobile-connection {
+    top: 55px;
+    /* 30px top + 25px half node */
+    left: 25px;
+    /* center of 50px node */
+    width: calc(100% - 50px);
   }
 
-  .howit-icon {
-    width: 64px;
-    height: 64px;
-    font-size: 28px;
+  .timeline-node {
+    width: 50px;
+    top: 30px;
   }
 
-  .howit-number {
-    width: 30px;
-    height: 30px;
-    font-size: 12px;
+  .node-icon-wrapper {
+    width: 50px;
+    height: 50px;
   }
 
-  .howit-title {
-    font-size: 18px;
+  .node-icon {
+    width: 24px;
+    height: 24px;
   }
 
-  .howit-description {
-    font-size: 13px;
+  .item-left .timeline-card,
+  .item-right .timeline-card {
+    padding: 24px 20px;
+  }
+
+  .timeline-title {
+    font-size: 20px;
+  }
+
+  .timeline-description {
+    font-size: 14px;
+  }
+
+  .timeline-card-visual {
+    min-height: 150px;
+  }
+
+  .timeline-card-visual img {
+    max-height: 150px;
   }
 
   .howit-cta {
