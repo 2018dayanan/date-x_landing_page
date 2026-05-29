@@ -16,6 +16,7 @@ const Footer: React.FC = () => {
       { name: 'Contact', href: '#' },
       { name: 'Privacy Policy', href: '/privacy' },
       { name: 'Terms & Conditions', href: '/terms' },
+      { name: 'Delete Account', href: '/delete-account' },
     ],
   };
 
@@ -98,6 +99,7 @@ const Footer: React.FC = () => {
           <div className="footer-bottom-links">
             <Link to="/privacy" className="footer-bottom-link">Privacy</Link>
             <Link to="/terms" className="footer-bottom-link">Terms</Link>
+            <Link to="/delete-account" className="footer-bottom-link">Delete Account</Link>
             <a href="#" className="footer-bottom-link">Cookies</a>
           </div>
         </div>
