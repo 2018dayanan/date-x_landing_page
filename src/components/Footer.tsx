@@ -14,6 +14,8 @@ const Footer: React.FC = () => {
     Company: [
       { name: 'About Us', href: '#' },
       { name: 'Contact', href: '#' },
+      { name: 'Privacy Policy', href: '/privacy' },
+      { name: 'Terms & Conditions', href: '/terms' },
     ],
   };
 
@@ -95,7 +97,7 @@ const Footer: React.FC = () => {
 
           <div className="footer-bottom-links">
             <Link to="/privacy" className="footer-bottom-link">Privacy</Link>
-            <a href="#" className="footer-bottom-link">Terms</a>
+            <Link to="/terms" className="footer-bottom-link">Terms</Link>
             <a href="#" className="footer-bottom-link">Cookies</a>
           </div>
         </div>

@@ -12,7 +12,7 @@ const PrivacyPolicy: React.FC = () => {
   return (
     <div className="privacy-wrapper">
       <Navbar />
-      
+
       <div className="container privacy-container">
         <div className="reveal">
           <h1 className="privacy-title text-display-lg">Privacy <span style={{ color: 'var(--primary)' }}>Policy</span></h1>
@@ -55,8 +55,8 @@ const PrivacyPolicy: React.FC = () => {
               3. Data Security
             </h2>
             <p className="privacy-text text-body-md">
-              We implement state-of-the-art security measures to protect your data from unauthorized 
-              access, alteration, disclosure, or destruction. All video calls are encrypted 
+              We implement state-of-the-art security measures to protect your data from unauthorized
+              access, alteration, disclosure, or destruction. All video calls are encrypted
               end-to-end to ensure your private moments stay private.
             </p>
           </section>
@@ -68,7 +68,8 @@ const PrivacyPolicy: React.FC = () => {
             <p className="privacy-text text-body-md">
               If you have any questions about this Privacy Policy, please contact us at:
               <br />
-              <strong style={{ color: 'var(--on-surface)' }}>privacy@date-x.com</strong>
+              <strong style={{ color: 'var(--on-surface)' }}>
+                datexstreaming@gmail.com</strong>
             </p>
           </section>
 

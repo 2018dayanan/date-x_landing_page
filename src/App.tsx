@@ -6,6 +6,7 @@ import HowItWorks from './components/HowItWorks';
 import Download from './components/Download';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsAndConditions from './components/TermsAndConditions';
 import BackgroundOrbs from './components/BackgroundOrbs';
 import './index.css';
 
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
       </Routes>
     </Router>
   );
