@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
 import AccountDeletion from './components/AccountDeletion';
+import ChildSafety from './components/ChildSafety';
 import BackgroundOrbs from './components/BackgroundOrbs';
 import './index.css';
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/delete-account" element={<AccountDeletion />} />
+        <Route path="/child-safety" element={<ChildSafety />} />
       </Routes>
     </Router>
   );
