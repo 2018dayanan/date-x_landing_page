@@ -222,6 +222,7 @@
     margin: 0 auto;
   }
   .hero-title {
+    font-size: clamp(32px, 8vw, 48px);
     letter-spacing: -1px;
     margin-bottom: 20px;
   }

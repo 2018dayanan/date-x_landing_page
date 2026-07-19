@@ -222,4 +222,27 @@
     justify-content: center;
     gap: 20px;
   }
+
+  .footer-copyright {
+    border-radius: var(--radius-lg);
+    padding: 12px 20px;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-copyright p {
+    text-align: center;
+  }
+
+  .footer-bottom-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .footer-bottom-link {
+    padding: 8px 12px;
+  }
 }
