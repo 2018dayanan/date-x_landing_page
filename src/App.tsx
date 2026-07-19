@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
+import StreamingPolicies from './components/StreamingPolicies';
 import Download from './components/Download';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -19,6 +20,7 @@ const Home = () => (
     <Hero />
     <Features />
     <HowItWorks />
+    <StreamingPolicies />
     <Download />
     <Footer />
   </div>

@@ -34,7 +34,7 @@
 .premium-badge-text {
   color: var(--primary);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -53,7 +53,7 @@
 }
 
 .hero-description {
-  font-size: clamp(16px, 3vw, 20px);
+  font-size: clamp(15px, 3vw, 20px);
   color: var(--on-surface-variant);
   line-height: 1.6;
   margin-bottom: 48px;
@@ -67,85 +67,49 @@
   flex-wrap: wrap;
 }
 
-.hero-stats-container {
-  display: flex;
-  gap: 24px;
-  margin-top: 48px;
-  padding: 24px;
-  background: var(--surface-container-lowest);
-  border-radius: var(--radius-2xl);
-  border: 1px solid var(--outline-variant);
-  box-shadow: var(--shadow-ambient);
-  flex-wrap: wrap;
-}
-
-.hero-stat-divider {
-  width: 1px;
-  height: 40px;
-  background: var(--outline-variant);
-  opacity: 0.5;
-}
-
-.stat-value {
-  font-size: 30px;
-  font-weight: 800;
-  color: var(--primary);
-  line-height: 1.2;
-}
-
-.stat-label {
-  font-size: 14px;
-  color: var(--on-surface-variant);
-  font-weight: 600;
-  margin-top: 4px;
-}
-
-.phone-mockup-wrapper {
-  position: relative;
+/* Widescreen Banner Container */
+.hero-mockup-column {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.phone-container {
-  width: 300px;
-  height: 600px;
-  background: var(--on-surface); /* Phone casing */
-  border-radius: 54px;
-  padding: 12px;
-  box-shadow: var(--shadow-primary-lg);
-  position: relative;
-  animation: float 6s ease-in-out infinite;
+.hero-banner-container {
+  width: 100%;
+  max-width: 620px;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  overflow: hidden;
   border: 1px solid var(--outline-variant);
+  box-shadow: var(--shadow-primary-lg);
+  display: flex;
+  background: var(--surface-container-lowest);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.phone-screen {
+.hero-banner-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 38px -10px rgba(244, 140, 37, 0.2);
+  border-color: var(--primary-container);
+}
+
+.hero-banner-img {
   width: 100%;
   height: 100%;
-  background: var(--surface-container-low);
-  border-radius: 42px;
-  overflow: hidden;
-  position: relative;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
+  object-fit: cover;
 }
 
-.phone-screen-bg {
-  width: 100%;
-  height: 380px;
-  background: linear-gradient(135deg, var(--primary-container), #ffb77d);
-  border-radius: var(--radius-2xl);
-  position: relative;
-  overflow: hidden;
+/* Desktop/Mobile Visibility Utilities */
+.hide-desktop {
+  display: none !important;
 }
 
-.phone-screen-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 50%, rgba(35, 26, 19, 0.8));
+.hide-mobile {
+  display: flex !important;
 }
 
+/* Video Modal styles */
 .video-modal-overlay {
   position: fixed;
   inset: 0;
@@ -181,20 +145,11 @@
   font-size: 20px;
   font-weight: bold;
   z-index: 10;
+  border: none;
+  cursor: pointer;
 }
 
-.floating-card {
-  position: absolute;
-  padding: 16px 20px;
-  border-radius: var(--radius-2xl);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--surface-container-lowest);
-  border: 1px solid var(--outline-variant);
-  box-shadow: var(--shadow-ambient);
-}
-
+/* Responsive Rules */
 @media (max-width: 991px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -202,8 +157,16 @@
   .hero-section {
     padding: 140px 0 80px !important;
   }
-  .phone-mockup-wrapper {
-    margin-top: 60px;
+  .hero-mockup-column {
+    margin-top: 40px;
+  }
+  .hide-desktop {
+    display: flex !important;
+    margin-top: 20px;
+    margin-bottom: 24px;
+  }
+  .hide-mobile {
+    display: none !important;
   }
 }
 
@@ -212,9 +175,6 @@
     padding: 120px 0 60px !important;
     text-align: center;
   }
-  .phone-mockup-wrapper {
-    display: none;
-  }
   .hero-content {
     display: flex;
     flex-direction: column;
@@ -222,9 +182,9 @@
     margin: 0 auto;
   }
   .hero-title {
-    font-size: clamp(32px, 8vw, 48px);
     letter-spacing: -1px;
     margin-bottom: 20px;
+    font-size: clamp(30px, 8vw, 48px);
   }
   .hero-description {
     margin-bottom: 32px;
@@ -232,12 +192,5 @@
   .hero-ctas {
     justify-content: center;
     width: 100%;
-  }
-  .hero-stats-container {
-    justify-content: center;
-    margin-top: 40px;
-  }
-  .hide-mobile {
-    display: none !important;
   }
 }

@@ -23,7 +23,7 @@ const Download: React.FC = () => {
 
           {/* Platform Buttons */}
           <div className="download-platforms">
-            {/* App Store */}
+            {/* {/* App Store
             <button
               className={`download-btn download-btn-apple ${hoveredPlatform === 'apple' ? 'active' : ''}`}
               onMouseEnter={() => setHoveredPlatform('apple')}
@@ -38,13 +38,17 @@ const Download: React.FC = () => {
                 <span className="download-btn-label">Download on the</span>
                 <span className="download-btn-name">App Store</span>
               </div>
-            </button>
+            </button> */}
 
             {/* Google Play */}
-            <button
+            <a
+              href="https://play.google.com/store/apps/details?id=com.datexstreaming.app"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`download-btn download-btn-google ${hoveredPlatform === 'google' ? 'active' : ''}`}
               onMouseEnter={() => setHoveredPlatform('google')}
               onMouseLeave={() => setHoveredPlatform(null)}
+              style={{ textDecoration: 'none' }}
             >
               <div className="download-btn-icon">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
@@ -55,7 +59,7 @@ const Download: React.FC = () => {
                 <span className="download-btn-label">GET IT ON</span>
                 <span className="download-btn-name">Google Play</span>
               </div>
-            </button>
+            </a>
           </div>
 
           {/* Features List */}
