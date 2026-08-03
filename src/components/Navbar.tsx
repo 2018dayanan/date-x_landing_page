@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
         
         {/* Actions (Visible on all screens) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <Button variant="primary" size="sm">Download</Button>
+          <Button variant="primary" size="sm" className="nav-download-btn">Download</Button>
 
           {/* Mobile Menu Toggle */}
           <button

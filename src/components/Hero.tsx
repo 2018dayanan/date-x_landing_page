@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Button from './Button';
 import './Hero.css';
+import heroBanner from '../assets/hero_banner.png';
 
 const Hero: React.FC = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   return (
     <section id="home" className="hero-section">
@@ -24,7 +15,7 @@ const Hero: React.FC = () => {
           <div className="reveal hero-content">
             {/* Premium Badge */}
             <div className="premium-badge">
-              <span style={{ fontSize: '18px' }}>✨</span>
+              <span style={{ fontSize: '18px' }}>⚡</span>
               <span className="premium-badge-text">
                 The Future of Connection
               </span>
@@ -35,6 +26,13 @@ const Hero: React.FC = () => {
               <br />
               With the World
             </h1>
+
+            {/* Mobile Banner: Rendered directly below the title on mobile screens */}
+            <div className="hero-mockup-column hide-desktop">
+              <div className="hero-banner-container">
+                <img src={heroBanner} alt="DateX Live Streaming Banner" className="hero-banner-img" />
+              </div>
+            </div>
 
             <p className="hero-description">
               Experience the next generation of social interaction. HD video calls,
@@ -50,110 +48,15 @@ const Hero: React.FC = () => {
                 Watch Demo
               </Button>
             </div>
+          </div>
 
-            {/* Stats */}
-            <div className="hero-stats-container">
-              <div>
-                <div className="stat-value">10M+</div>
-                <div className="stat-label">Active Users</div>
-              </div>
-              <div className="hero-stat-divider hide-mobile" />
-              <div>
-                <div className="stat-value">4.9★</div>
-                <div className="stat-label">App Rating</div>
-              </div>
-              <div className="hero-stat-divider hide-mobile" />
-              <div>
-                <div className="stat-value">190+</div>
-                <div className="stat-label">Countries</div>
-              </div>
+          {/* Desktop Banner: Rendered as right column on desktop screens */}
+          <div className="hero-mockup-column reveal hide-mobile">
+            <div className="hero-banner-container">
+              <img src={heroBanner} alt="DateX Live Streaming Banner" className="hero-banner-img" />
             </div>
           </div>
 
-          {/* Right Content - Phone Mockup - Hidden on mobile */}
-          {!isMobile && (
-            <div className="phone-mockup-wrapper hide-mobile">
-              <div className="phone-container">
-                <div className="phone-screen">
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', width: '100%' }}>
-                    <div style={{ fontSize: '18px', fontWeight: 800, color: 'var(--on-surface)' }}>DateX</div>
-                    <div style={{ width: '28px', height: '28px', background: 'var(--outline-variant)', borderRadius: '50%', flexShrink: 0 }} />
-                  </div>
-
-                  <div className="phone-screen-bg" style={{ width: '100%' }}>
-                    <div style={{ position: 'absolute', bottom: '20px', left: '20px', zIndex: 2 }}>
-                      <div style={{ fontWeight: 800, fontSize: '18px', color: '#fff' }}>Sophia, 24 ✨</div>
-                      <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.9)', fontWeight: 500 }}>Live Now</div>
-                    </div>
-                    <div style={{
-                      position: 'absolute',
-                      top: '16px',
-                      right: '16px',
-                      padding: '6px 12px',
-                      background: 'var(--primary)',
-                      color: 'white',
-                      borderRadius: 'var(--radius-full)',
-                      fontSize: '11px',
-                      fontWeight: 700,
-                      zIndex: 2,
-                    }}>
-                      LIVE
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Cards */}
-              <div
-                className="floating-card"
-                style={{
-                  top: '15%',
-                  right: '-40px',
-                  animation: 'float 5s ease-in-out infinite reverse',
-                }}
-              >
-                <div style={{
-                  width: '40px',
-                  height: '40px',
-                  background: 'var(--primary-container)',
-                  borderRadius: 'var(--radius-DEFAULT)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '20px',
-                }}>🎁</div>
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: '14px', color: 'var(--on-surface)' }}>New Gift!</div>
-                  <div style={{ fontSize: '12px', color: 'var(--primary)', fontWeight: 600 }}>+500 Tokens</div>
-                </div>
-              </div>
-
-              <div
-                className="floating-card"
-                style={{
-                  bottom: '25%',
-                  left: '-50px',
-                  animation: 'float 6s ease-in-out infinite',
-                }}
-              >
-                <div style={{
-                  width: '40px',
-                  height: '40px',
-                  background: '#ffb77d',
-                  borderRadius: 'var(--radius-DEFAULT)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '20px',
-                }}>⭐</div>
-                <div>
-                  <div style={{ fontWeight: 700, fontSize: '14px', color: 'var(--on-surface)' }}>4.9 Rating</div>
-                  <div style={{ fontSize: '12px', color: 'var(--on-surface-variant)', fontWeight: 600 }}>Top App</div>
-                </div>
-              </div>
-
-            </div>
-          )}
         </div>
       </div>
 

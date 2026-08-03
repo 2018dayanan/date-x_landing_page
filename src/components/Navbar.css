@@ -130,8 +130,13 @@
   .mobile-menu-btn {
     display: flex;
   }
+  .nav-download-btn {
+    display: none !important;
+  }
   .navbar-container {
+    width: auto !important;
     margin-left: 15px !important;
     margin-right: 15px !important;
+    padding: 10px 16px !important;
   }
 }

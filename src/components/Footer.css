@@ -1,6 +1,6 @@
 .footer-wrapper {
   background: var(--surface-dim);
-  padding: 100px 0 60px;
+  padding: 40px 0 20px;
   border-top: 1px solid var(--outline-variant);
   position: relative;
   overflow: hidden;
@@ -10,7 +10,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 60px;
-  margin-bottom: 80px;
 }
 
 .footer-brand {
@@ -221,5 +220,28 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+  }
+
+  .footer-copyright {
+    border-radius: var(--radius-lg);
+    padding: 12px 20px;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-copyright p {
+    text-align: center;
+  }
+
+  .footer-bottom-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .footer-bottom-link {
+    padding: 8px 12px;
   }
 }

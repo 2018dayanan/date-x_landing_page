@@ -286,6 +286,11 @@
   font-size: clamp(14px, 1.15vw, 22px);
   font-weight: 800;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .cp-tabs button:hover,
@@ -298,9 +303,9 @@
   content: "";
   position: absolute;
   left: 50%;
-  top: 2.71vw;
-  width: 5.21vw;
-  height: 0.42vw;
+  bottom: 1vw;
+  width: 48px;
+  height: 4px;
   border-radius: var(--radius-full);
   background: var(--primary);
   transform: translateX(-50%);
