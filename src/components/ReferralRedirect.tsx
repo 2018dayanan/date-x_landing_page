@@ -17,20 +17,23 @@ const ReferralRedirect: React.FC = () => {
 
   const packageName = "com.datexstreaming.app";
   const playStoreUrl = `https://play.google.com/store/apps/details?id=${packageName}&referrer=${encodeURIComponent('code=' + referralCode)}`;
-  const appLinkUrl = `https://datexstreaming.com/r/${referralCode}`;
+
+  // Android Chrome Intent URL: Forces Chrome to open the mobile app directly if installed,
+  // or fall back to the Play Store if not installed!
+  const intentUrl = `intent://datexstreaming.com/r/${referralCode}#Intent;scheme=https;package=${packageName};S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
 
   useEffect(() => {
-    // Step 1: Try opening the mobile app (if installed + App Links verified, OS switches apps instantly)
-    window.location.href = appLinkUrl;
+    // Step 1: Trigger the Intent URI to force opening the app from inside web browsers
+    window.location.href = intentUrl;
 
-    // Step 2: Fallback to Google Play Store after 1.8 seconds if app didn't open
+    // Step 2: Fallback timer to Google Play Store after 1.8 seconds if Intent failed/blocked
     const timer = setTimeout(() => {
       setStatus('redirecting_store');
       window.location.href = playStoreUrl;
     }, 1800);
 
     return () => clearTimeout(timer);
-  }, [playStoreUrl, appLinkUrl]);
+  }, [intentUrl, playStoreUrl]);
 
   const handleManualClick = () => {
     window.location.href = playStoreUrl;
