@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.datexstreaming.app",
+      "sha256_cert_fingerprints": [
+        "29:9D:B3:65:9D:27:88:CD:9C:B2:A3:AB:0B:BF:B8:27:E0:FB:AA:AD:AB:D0:60:F1:C2:D6:55:C8:FB:4C:0A:CC"
+      ]
+    }
+  }
+]
