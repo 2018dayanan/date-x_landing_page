@@ -94,13 +94,16 @@ const Hero: React.FC = () => {
 
             {/* CTA Buttons */}
             <div className="hero-ctas">
-              <Button variant="primary" size="md" style={{ minWidth: '180px' }}>
-                Start Exploring
-              </Button>
+              <a href="https://play.google.com/store/apps/details?id=com.datexstreaming.app" target="_blank" rel="noopener noreferrer">
+                <Button variant="primary" size="md" style={{ minWidth: '180px' }}>
+                  Start Exploring
+                </Button>
+              </a>
               <Button variant="outline" size="md" style={{ minWidth: '180px' }} onClick={() => setIsVideoOpen(true)}>
                 Watch Demo
               </Button>
             </div>
+
           </div>
 
           {/* Desktop Banner: Rendered as right column on desktop screens */}

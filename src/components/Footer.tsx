@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
         <div className="footer-bottom">
           <div className="footer-copyright">
             <p>
-              © 2026 DateX. All rights reserved. Made with <a href="https://eonpulsetech.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 700 }}>Eonpulsetech</a>.
+              © 2026 DateX Streaming. All rights reserved. Made with <a href="https://eonpulsetech.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 700 }}>Eonpulsetech</a>.
             </p>
           </div>
 

@@ -82,7 +82,9 @@ const Navbar: React.FC = () => {
         
         {/* Actions (Visible on all screens) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <Button variant="primary" size="sm" className="nav-download-btn">Download</Button>
+          <a href="https://play.google.com/store/apps/details?id=com.datexstreaming.app" target="_blank" rel="noopener noreferrer">
+            <Button variant="primary" size="sm" className="nav-download-btn">Download</Button>
+          </a>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -108,8 +110,11 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '10px' }}>
-            <Button variant="primary" size="md" style={{ width: '100%' }}>Download App</Button>
+            <a href="https://play.google.com/store/apps/details?id=com.datexstreaming.app" target="_blank" rel="noopener noreferrer" style={{ width: '100%' }}>
+              <Button variant="primary" size="md" style={{ width: '100%' }}>Download App</Button>
+            </a>
           </div>
+
         </div>
       )}
     </nav>
