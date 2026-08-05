@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   useEffect(() => {
     const fetchLandingPage = async () => {
       try {
-        const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:7023';
+        const baseUrl = import.meta.env.VITE_API_BASE_URL || '';
         const response = await fetch(`${baseUrl}/api/landing-page/active`, {
           headers: {
             'x-api-key': 'XJCuElXqpYLUfkZbuQMnpqAHWWxkRXC'
