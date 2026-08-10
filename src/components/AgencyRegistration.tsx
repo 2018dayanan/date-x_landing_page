@@ -205,8 +205,9 @@ const AgencyRegistration: React.FC = () => {
               </div>
 
               <div className="form-group full-width">
-                <label>Profile Picture (Optional)</label>
+                <label>Profile Picture *</label>
                 <input
+                  required
                   type="file"
                   accept="image/png, image/jpeg, image/jpg"
                   onChange={(e) => handleFileUpload(e, (base64) => setFormData(prev => ({ ...prev, profile_picture: base64 })))}
