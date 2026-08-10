@@ -11,6 +11,7 @@ import TermsAndConditions from './components/TermsAndConditions';
 import AccountDeletion from './components/AccountDeletion';
 import ChildSafety from './components/ChildSafety';
 import ReferralRedirect from './components/ReferralRedirect';
+import AgencyRegistration from './components/AgencyRegistration';
 import BackgroundOrbs from './components/BackgroundOrbs';
 import './index.css';
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/delete-account" element={<AccountDeletion />} />
         <Route path="/child-safety" element={<ChildSafety />} />
+        <Route path="/agency-registration" element={<AgencyRegistration />} />
         <Route path="/r/:code" element={<ReferralRedirect />} />
         <Route path="/r" element={<ReferralRedirect />} />
       </Routes>
