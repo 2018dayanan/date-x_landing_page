@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaXmark } from 'react-icons/fa6';
 import './Navbar.css';
@@ -9,6 +9,7 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,11 +48,19 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', id: 'home', href: '/#home' },
-    { name: 'Features', id: 'features', href: '/#features' },
-    { name: 'How It Works', id: 'how-it-works', href: '/#how-it-works' },
-    { name: 'Download', id: 'download', href: '/#download' },
+    { name: 'Home', id: 'home', href: '/#home', isRoute: false },
+    { name: 'Features', id: 'features', href: '/#features', isRoute: false },
+    { name: 'How It Works', id: 'how-it-works', href: '/#how-it-works', isRoute: false },
+    { name: 'Download', id: 'download', href: '/#download', isRoute: false },
+    { name: 'Agency Registration', id: 'agency-registration', href: '/agency-registration', isRoute: true },
   ];
+
+  const isLinkActive = (link: typeof navLinks[0]) => {
+    if (link.isRoute) {
+      return location.pathname === link.href;
+    }
+    return location.pathname === '/' && activeSection === link.id;
+  };
 
   return (
     <nav className="navbar-wrapper" style={{ padding: scrolled ? '12px 0' : '20px 0' }}>
@@ -59,7 +68,7 @@ const Navbar: React.FC = () => {
         className="container navbar-container"
         style={{
           padding: scrolled ? '10px 32px' : '14px 40px',
-          maxWidth: scrolled ? '1000px' : '1200px',
+          maxWidth: scrolled ? '1050px' : '1240px',
         }}
       >
         {/* Logo */}
@@ -70,13 +79,23 @@ const Navbar: React.FC = () => {
         {/* Desktop Nav Links */}
         <div className="nav-links">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
-            >
-              {link.name}
-            </a>
+            link.isRoute ? (
+              <Link
+                key={link.name}
+                to={link.href}
+                className={`nav-link ${isLinkActive(link) ? 'active' : ''}`}
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`nav-link ${isLinkActive(link) ? 'active' : ''}`}
+              >
+                {link.name}
+              </a>
+            )
           ))}
         </div>
         
@@ -100,21 +119,31 @@ const Navbar: React.FC = () => {
       {mobileMenuOpen && (
         <div className="mobile-nav-overlay">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={`mobile-nav-link ${activeSection === link.id ? 'active' : ''}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.name}
-            </a>
+            link.isRoute ? (
+              <Link
+                key={link.name}
+                to={link.href}
+                className={`mobile-nav-link ${isLinkActive(link) ? 'active' : ''}`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`mobile-nav-link ${isLinkActive(link) ? 'active' : ''}`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            )
           ))}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '10px' }}>
             <a href="https://play.google.com/store/apps/details?id=com.datexstreaming.app" target="_blank" rel="noopener noreferrer" style={{ width: '100%' }}>
               <Button variant="primary" size="md" style={{ width: '100%' }}>Download App</Button>
             </a>
           </div>
-
         </div>
       )}
     </nav>

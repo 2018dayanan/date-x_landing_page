@@ -127,7 +127,16 @@ const AgencyRegistration: React.FC = () => {
     setStatus(null);
 
     try {
-      const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:7023';
+      const getApiBaseUrl = () => {
+        const envUrl = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL;
+        if (envUrl && envUrl.startsWith('http')) return envUrl.replace(/\/api\/?$/, '');
+        if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+          return 'https://api.datexstreaming.com';
+        }
+        return 'http://localhost:7023';
+      };
+
+      const baseUrl = getApiBaseUrl();
       const response = await fetch(`${baseUrl}/api/landing-page/register-agency`, {
         method: 'POST',
         headers: {

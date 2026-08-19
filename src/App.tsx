@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
+import AgencyPartnerSection from './components/AgencyPartnerSection';
 import StreamingPolicies from './components/StreamingPolicies';
 import Download from './components/Download';
 import Footer from './components/Footer';
@@ -13,6 +14,7 @@ import ChildSafety from './components/ChildSafety';
 import ReferralRedirect from './components/ReferralRedirect';
 import AgencyRegistration from './components/AgencyRegistration';
 import BackgroundOrbs from './components/BackgroundOrbs';
+import ScrollToTop from './components/ScrollToTop';
 import './index.css';
 
 const Home = () => (
@@ -22,6 +24,7 @@ const Home = () => (
     <Hero />
     <Features />
     <HowItWorks />
+    <AgencyPartnerSection />
     <StreamingPolicies />
     <Download />
     <Footer />
@@ -31,6 +34,7 @@ const Home = () => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />

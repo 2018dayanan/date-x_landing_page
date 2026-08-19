@@ -5,6 +5,10 @@ import './Footer.css';
 import textLogo from '../assets/logo_dark.png';
 
 const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   const footerLinks = {
     Product: [
       { name: 'Features', href: '/#features' },
@@ -12,8 +16,8 @@ const Footer: React.FC = () => {
       { name: 'Reviews', href: '/#testimonials' },
     ],
     Company: [
-      { name: 'About Us', href: '#' },
-      { name: 'Contact', href: '#' },
+      { name: 'About Us', href: '/#how-it-works' },
+      { name: 'Contact', href: 'mailto:support@datexstreaming.com' },
       { name: 'Delete Account', href: '/delete-account' },
       { name: 'Agency Registration', href: '/agency-registration' },
     ],
@@ -26,7 +30,7 @@ const Footer: React.FC = () => {
         <div className="footer-top">
           {/* Brand */}
           <div className="footer-brand">
-            <Link to="/" className="footer-logo-link">
+            <Link to="/" onClick={scrollToTop} className="footer-logo-link">
               <div className="footer-logo-container">
                 <img src={textLogo} alt="DateX Logo" style={{ height: '40px', width: 'auto' }} />
               </div>
@@ -71,8 +75,8 @@ const Footer: React.FC = () => {
               <ul className="footer-links-list">
                 {links.map((link) => (
                   <li key={link.name} className="footer-link-item">
-                    {link.href.startsWith('/') ? (
-                      <Link to={link.href} className="footer-link">
+                    {link.href.startsWith('/') && !link.href.includes('#') ? (
+                      <Link to={link.href} onClick={scrollToTop} className="footer-link">
                         {link.name}
                       </Link>
                     ) : (
@@ -96,9 +100,9 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="footer-bottom-links">
-            <Link to="/privacy" className="footer-bottom-link">Privacy</Link>
-            <Link to="/terms" className="footer-bottom-link">Terms</Link>
-            <Link to="/delete-account" className="footer-bottom-link">Delete Account</Link>
+            <Link to="/privacy" onClick={scrollToTop} className="footer-bottom-link">Privacy</Link>
+            <Link to="/terms" onClick={scrollToTop} className="footer-bottom-link">Terms</Link>
+            <Link to="/delete-account" onClick={scrollToTop} className="footer-bottom-link">Delete Account</Link>
           </div>
         </div>
       </div>
