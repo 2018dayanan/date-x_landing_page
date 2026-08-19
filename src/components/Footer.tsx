@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaTwitter, FaInstagram, FaFacebookF, FaLinkedinIn } from 'react-icons/fa6';
+import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa6';
 import './Footer.css';
 import textLogo from '../assets/logo_dark.png';
 
@@ -8,6 +8,27 @@ const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
+
+  const socialLinks = [
+    {
+      name: 'Facebook',
+      icon: <FaFacebookF size={18} />,
+      url: 'https://www.facebook.com/profile.php?id=61591852056842',
+      color: '#1877F2',
+    },
+    {
+      name: 'Instagram',
+      icon: <FaInstagram size={18} />,
+      url: 'https://www.instagram.com/datexstreaming',
+      color: '#E4405F',
+    },
+    {
+      name: 'YouTube',
+      icon: <FaYoutube size={18} />,
+      url: 'https://www.youtube.com/@datexstreaming',
+      color: '#FF0000',
+    },
+  ];
 
   const footerLinks = {
     Product: [
@@ -41,15 +62,14 @@ const Footer: React.FC = () => {
 
             {/* Social Icons */}
             <div className="social-icons">
-              {[
-                { icon: <FaTwitter size={18} />, color: '#1DA1F2' },
-                { icon: <FaInstagram size={18} />, color: '#E4405F' },
-                { icon: <FaFacebookF size={18} />, color: '#1877F2' },
-                { icon: <FaLinkedinIn size={18} />, color: '#0A66C2' },
-              ].map((item, i) => (
-                <div
-                  key={i}
+              {socialLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="social-icon"
+                  aria-label={item.name}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = item.color;
                     e.currentTarget.style.borderColor = item.color;
@@ -60,7 +80,7 @@ const Footer: React.FC = () => {
                   }}
                 >
                   {item.icon}
-                </div>
+                </a>
               ))}
             </div>
           </div>
