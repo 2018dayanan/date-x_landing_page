@@ -114,9 +114,8 @@ const Footer: React.FC = () => {
         {/* Bottom Section */}
         <div className="footer-bottom">
           <div className="footer-copyright">
-            <p>
-              © 2026 DateX Streaming. All rights reserved. Made with <a href="https://eonpulsetech.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 700 }}>Eonpulsetech</a>.
-            </p>
+            <p className="footer-managed">Managed by Eonpulse Tech FZ-LLC</p>
+            <p className="footer-copyright-text">Copyright © Rutvi Innovation Private Limited. All rights reserved.</p>
           </div>
 
           <div className="footer-bottom-links">
