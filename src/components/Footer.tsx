@@ -114,7 +114,6 @@ const Footer: React.FC = () => {
         {/* Bottom Section */}
         <div className="footer-bottom">
           <div className="footer-copyright">
-            <p className="footer-managed">Managed by Eonpulse Tech FZ-LLC</p>
             <p className="footer-copyright-text">Copyright © Rutvi Innovation Private Limited. All rights reserved.</p>
           </div>
 

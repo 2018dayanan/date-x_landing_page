@@ -146,7 +146,7 @@
   grid-column: 1 / -1;
 }
 
-.section-title {
+.agency-registration-card .section-title {
   grid-column: 1 / -1;
   font-size: 1.4rem;
   color: var(--on-surface, #231a13);
