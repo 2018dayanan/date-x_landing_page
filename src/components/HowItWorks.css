@@ -5,12 +5,12 @@
   overflow: hidden;
 }
 
-.section-header {
+.how-it-works-section .section-header {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.section-badge {
+.how-it-works-section .section-badge {
   display: inline-block;
   background: var(--surface-container-high);
   padding: 12px 24px;
@@ -24,7 +24,8 @@
   box-shadow: var(--shadow-ambient);
 }
 
-.section-title {
+.how-it-works-section .section-title {
+  display: block;
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 800;
   color: var(--on-surface);
@@ -32,7 +33,7 @@
   margin-bottom: 16px;
 }
 
-.section-subtitle {
+.how-it-works-section .section-subtitle {
   font-size: 18px;
   color: var(--on-surface-variant);
   max-width: 550px;

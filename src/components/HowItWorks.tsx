@@ -4,10 +4,10 @@ import './HowItWorks.css';
 import Button from './Button';
 
 // Import assets for the cards
-import downloadAsset from '../assets/chamet/phoneFrame.BSPiujGq.webp';
-import createAsset from '../assets/chamet/moments_pic.Bh_i2fnF.webp';
-import matchAsset from '../assets/chamet/party_pic.BZI-3Trh.webp';
-import connectAsset from '../assets/chamet/motion_moments.n4Z_9dfp.gif';
+import downloadAsset from '../assets/Download_App.webp';
+import createAsset from '../assets/Create_Profile.webp';
+import matchAsset from '../assets/Find_Matches.webp';
+import connectAsset from '../assets/Start_Connecting.webp';
 
 const steps = [
   {

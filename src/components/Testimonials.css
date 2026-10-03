@@ -6,7 +6,7 @@
 }
 
 /* Section Badge */
-.section-badge {
+.testimonials-section .section-badge {
   display: inline-block;
   background: var(--surface-container-high);
   padding: 12px 24px;
