@@ -34,7 +34,7 @@ const ChildSafety: React.FC = () => {
               Age Verification & Eligibility
             </h2>
             <ul className="privacy-list text-body-md">
-              <li className="privacy-list-item">Users <strong>must be 18 years or older</strong> to register and use DateX.</li>
+              <li className="privacy-list-item">Users <strong>must be 18 years or older</strong> to register and use DateX Streming.</li>
               <li className="privacy-list-item">During registration, users are required to confirm their age.</li>
               <li className="privacy-list-item">We actively review and remove accounts that appear to belong to minors.</li>
               <li className="privacy-list-item">Any account found to belong to a user under 18 is <strong>immediately suspended and permanently banned</strong>.</li>

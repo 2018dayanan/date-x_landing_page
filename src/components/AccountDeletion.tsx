@@ -16,7 +16,7 @@ const AccountDeletion: React.FC = () => {
       <div className="container deletion-container">
         <div className="reveal">
           <h1 className="deletion-title text-display-lg">Account <span style={{ color: 'var(--primary)' }}>Deletion</span></h1>
-          <p className="deletion-subtitle text-body-md">Request to delete your DateX account and personal data</p>
+          <p className="deletion-subtitle text-body-md">Request to delete your DateX Streming account and personal data</p>
         </div>
 
         <div className="deletion-card reveal">
@@ -25,7 +25,7 @@ const AccountDeletion: React.FC = () => {
               How to Delete Your Account
             </h2>
             <p className="deletion-text text-body-md">
-              We respect your privacy and provide a simple way to delete your DateX account and all associated personal data from our servers. 
+              We respect your privacy and provide a simple way to delete your DateX Streming account and all associated personal data from our servers. 
               To request account deletion, please send an email to:
             </p>
             <div style={{ margin: '1.5rem 0', padding: '1rem', backgroundColor: 'var(--surface-container)', borderRadius: 'var(--radius-DEFAULT)', display: 'inline-block' }}>
@@ -42,7 +42,7 @@ const AccountDeletion: React.FC = () => {
             </p>
             <ul className="deletion-list text-body-md">
               <li className="deletion-list-item">Your registered email address or phone number used to create the account.</li>
-              <li className="deletion-list-item">Your DateX username or profile nickname.</li>
+              <li className="deletion-list-item">Your DateX Streming username or profile nickname.</li>
               <li className="deletion-list-item">Subject line: "Account Deletion Request".</li>
             </ul>
           </section>

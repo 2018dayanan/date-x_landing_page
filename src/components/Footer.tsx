@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
           <div className="footer-brand">
             <Link to="/" onClick={scrollToTop} className="footer-logo-link">
               <div className="footer-logo-container">
-                <img src={textLogo} alt="DateX Logo" style={{ height: '40px', width: 'auto' }} />
+                <img src={textLogo} alt="DateX Streming Logo" style={{ height: '40px', width: 'auto' }} />
               </div>
             </Link>
             <p className="footer-description">

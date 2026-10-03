@@ -12,7 +12,7 @@ import connectAsset from '../assets/Start_Connecting.webp';
 const steps = [
   {
     title: 'Download App',
-    description: 'Get DateX Streaming on your iOS or Android device for free. Available on all major platforms.',
+    description: 'Get DateX Streming Streaming on your iOS or Android device for free. Available on all major platforms.',
     Icon: Download,
     asset: downloadAsset,
   },
