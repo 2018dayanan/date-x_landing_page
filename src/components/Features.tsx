@@ -105,7 +105,7 @@ const Features: React.FC = () => {
                   <h3>Meet Stunning People Worldwide</h3>
                   <p>
                     Ready to match? Start your free video chat and meet awesome people
-                    worldwide instantly on DateX. Start a high-energy video chat match
+                    worldwide instantly on DateX Streaming. Start a high-energy video chat match
                     with verified users from around the globe.
                   </p>
                   <a className="cp-cta" href="#">

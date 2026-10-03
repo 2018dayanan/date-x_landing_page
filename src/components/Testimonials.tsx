@@ -3,7 +3,7 @@ import './Testimonials.css';
 
 const reviews = [
   {
-    text: "DateX completely changed how I connect with people. The video quality is incredible and the community is so welcoming! I've made genuine friendships here.",
+    text: "Datexstreaming completely changed how I connect with people. The video quality is incredible and the community is so welcoming! I've made genuine friendships here.",
     name: "Alex Johnson",
     role: "Verified User",
     avatar: "👨‍💼",
@@ -44,7 +44,7 @@ const Testimonials: React.FC = () => {
             Trusted by <span style={{ color: 'var(--primary)' }}>Millions</span> Worldwide
           </h2>
           <p style={{ fontSize: '18px', color: 'var(--on-surface-variant)', maxWidth: '600px', margin: '0 auto', fontWeight: 500 }}>
-            Join our growing community and discover why DateX is the most loved social platform.
+            Join our growing community and discover why Datexstreaming is the most loved social platform.
           </p>
         </div>
 

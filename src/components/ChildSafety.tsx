@@ -46,7 +46,7 @@ const ChildSafety: React.FC = () => {
               Prohibited Content & Behavior
             </h2>
             <p className="privacy-text text-body-md">
-              The following are strictly prohibited on DateX and will result in immediate account termination and reporting to authorities:
+              The following are strictly prohibited on DateX Streaming and will result in immediate account termination and reporting to authorities:
             </p>
             <ul className="privacy-list text-body-md">
               <li className="privacy-list-item">Any content depicting, soliciting, or glorifying the sexual abuse or exploitation of minors (CSAM)</li>
@@ -62,7 +62,7 @@ const ChildSafety: React.FC = () => {
               Detection & Prevention Measures
             </h2>
             <p className="privacy-text text-body-md">
-              DateX employs the following measures to prevent CSAE on our platform:
+               employs the following measures to prevent CSAE on our platform:
             </p>
             <ul className="privacy-list text-body-md">
               <li className="privacy-list-item"><strong>Age confirmation</strong> at account registration</li>
@@ -79,7 +79,7 @@ const ChildSafety: React.FC = () => {
               Reporting In-App
             </h2>
             <p className="privacy-text text-body-md">
-              DateX provides <strong>in-app reporting</strong> on every profile and message. Users can report:
+              DateX Streaming provides <strong>in-app reporting</strong> on every profile and message. Users can report:
             </p>
             <ul className="privacy-list text-body-md">
               <li className="privacy-list-item">Suspicious or underage-appearing profiles</li>
@@ -96,7 +96,7 @@ const ChildSafety: React.FC = () => {
               Reporting to Authorities
             </h2>
             <p className="privacy-text text-body-md">
-              DateX complies with all applicable child safety laws, including:
+              DateX Streaming complies with all applicable child safety laws, including:
             </p>
             <ul className="privacy-list text-body-md">
               <li className="privacy-list-item"><strong>NCMEC (National Center for Missing & Exploited Children)</strong> — We report any confirmed CSAM to NCMEC via CyberTipline as required under 18 U.S.C. § 2258A</li>

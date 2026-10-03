@@ -18,7 +18,7 @@ const Download: React.FC = () => {
             Ready to <span style={{ color: 'var(--primary)' }}>Get Started?</span>
           </h2>
           <p className="download-description">
-            Join millions of people already using DateX. Download now and get <strong>500 FREE Tokens</strong> on signup!
+            Join millions of people already using DateX Streaming. Download now and get <strong>500 FREE Tokens</strong> on signup!
           </p>
 
           {/* Platform Buttons */}

@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
       >
         {/* Logo */}
         <Link to="/" className="logo-container">
-          <img src={textLogo} alt="DateX" style={{ height: '36px', width: 'auto' }} />
+          <img src={textLogo} alt="DateX Streaming" style={{ height: '36px', width: 'auto' }} />
         </Link>
 
         {/* Desktop Nav Links */}

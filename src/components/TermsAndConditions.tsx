@@ -25,7 +25,7 @@ const TermsAndConditions: React.FC = () => {
               1. Acceptance of Terms
             </h2>
             <p className="terms-text text-body-md">
-              By accessing and using DateX, you agree to be bound by these Terms & Conditions. If you do not agree to all of these terms, please do not access or use our application, website, or services.
+              By accessing and using DateX Streaming, you agree to be bound by these Terms & Conditions. If you do not agree to all of these terms, please do not access or use our application, website, or services.
             </p>
           </section>
 
@@ -34,7 +34,7 @@ const TermsAndConditions: React.FC = () => {
               2. Eligibility & Account Security
             </h2>
             <p className="terms-text text-body-md">
-              To create an account and use DateX, you must satisfy the following conditions:
+              To create an account and use DateX Streaming, you must satisfy the following conditions:
             </p>
             <ul className="terms-list text-body-md">
               <li className="terms-list-item">You must be at least 18 years of age.</li>
@@ -64,7 +64,7 @@ const TermsAndConditions: React.FC = () => {
               4. Virtual Items & Subscriptions
             </h2>
             <p className="terms-text text-body-md">
-              DateX may offer virtual items, rewards, or subscriptions for purchase.
+              Datexstreaming may offer virtual items, rewards, or subscriptions for purchase.
               All purchases made within the app are final and non-refundable, except as required by applicable law.
               Virtual items have no monetary value outside of the platform.
             </p>
@@ -75,7 +75,7 @@ const TermsAndConditions: React.FC = () => {
               5. Disclaimer of Warranties
             </h2>
             <p className="terms-text text-body-md">
-              DateX is provided on an "AS IS" and "AS AVAILABLE" basis. We make no warranties, expressed or implied, regarding the reliability, security, availability, or accuracy of the services, including real-time video connections or match systems.
+              Datexstreaming is provided on an "AS IS" and "AS AVAILABLE" basis. We make no warranties, expressed or implied, regarding the reliability, security, availability, or accuracy of the services, including real-time video connections or match systems.
             </p>
           </section>
 

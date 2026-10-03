@@ -12,7 +12,7 @@ import connectAsset from '../assets/chamet/motion_moments.n4Z_9dfp.gif';
 const steps = [
   {
     title: 'Download App',
-    description: 'Get DateX on your iOS or Android device for free. Available on all major platforms.',
+    description: 'Get DateX Streaming on your iOS or Android device for free. Available on all major platforms.',
     Icon: Download,
     asset: downloadAsset,
   },
@@ -48,7 +48,7 @@ const HowItWorks: React.FC = () => {
             How It <span className="text-primary">Works</span>
           </h2>
           <p className="section-subtitle">
-            Getting started with DateX is easy. Follow these simple steps to begin your journey.
+            Getting started with DateX Streaming is easy. Follow these simple steps to begin your journey.
           </p>
         </div>
 

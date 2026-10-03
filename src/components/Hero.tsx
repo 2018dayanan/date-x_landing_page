@@ -109,7 +109,7 @@ const Hero: React.FC = () => {
           {/* Desktop Banner: Rendered as right column on desktop screens */}
           <div className="hero-mockup-column reveal hide-mobile">
             <div className="hero-banner-container">
-              <img src={currentBanner} alt="DateX Live Streaming Banner" className="hero-banner-img" />
+              <img src={currentBanner} alt="DateX Streaming Live Streaming Banner" className="hero-banner-img" />
             </div>
           </div>
 
